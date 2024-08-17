@@ -1,11 +1,11 @@
-deepin-deb-installer (1.3.2.1) UNRELEASED; urgency=medium
+gxde-deb-installer (1.3.2.1) UNRELEASED; urgency=medium
 
   * Non-maintainer upload.
   * 
 
  -- gfdgd_xi <3025613752@qq.com>  Sat, 17 Aug 2024 19:41:27 +0800
 
-deepin-deb-installer (1.0.0-1) unstable; urgency=medium
+gxde-deb-installer (1.0.0-1) unstable; urgency=medium
 
   * Initial release
 

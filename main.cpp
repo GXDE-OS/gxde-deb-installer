@@ -40,17 +40,17 @@ int main(int argc, char *argv[])
     DApplication::loadDXcbPlugin();
 
     DApplication app(argc, argv);
-    app.setOrganizationName("deepin");
-    app.setApplicationName("deepin-deb-installer");
+    app.setOrganizationName("GXDE");
+    app.setApplicationName("gxde-deb-installer");
     app.setApplicationVersion(VERSION);
-    app.setApplicationAcknowledgementPage("https://www.deepin.org/acknowledgments/deepin-package-manager/");
+    app.setApplicationAcknowledgementPage("https://gxde.gfdgdxi.top");
     app.setProductIcon(QIcon(":/images/icon.svg"));
     app.setAttribute(Qt::AA_UseHighDpiPixmaps);
     app.setAttribute(Qt::AA_EnableHighDpiScaling);
 //    app.loadTranslator(QList<QLocale>() << QLocale("zh_CN"));
     app.loadTranslator();
-    app.setProductName(QApplication::translate("main", "Deepin Package Manager"));
-    app.setApplicationDescription(QApplication::translate("main", "Deepin Package Manager is used to help users install and remove local packages, supporting bulk install."));
+    app.setProductName(QApplication::translate("main", "GXDE Package Manager"));
+    app.setApplicationDescription(QApplication::translate("main", "GXDE Package Manager is used to help users install and remove local packages, supporting bulk install."));
 
     DLogManager::registerConsoleAppender();
     DLogManager::registerFileAppender();
@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
 
     // command line arguments
     QCommandLineParser parser;
-    parser.setApplicationDescription("Deepin deb package manager.");
+    parser.setApplicationDescription("GXDE deb package manager.");
     parser.addHelpOption();
     parser.addVersionOption();
     parser.addPositionalArgument("filename", "Deb package path.", "file [file..]");

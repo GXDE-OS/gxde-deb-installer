@@ -4,7 +4,7 @@ if (NOT DEFINED VERSION)
     set(VERSION 1.2.2)
 endif ()
 
-project(deepin-deb-installer)
+project(gxde-deb-installer)
 
 #set(CMAKE_VERBOSE_MAKEFILE ON)
 set(CMAKE_CXX_STANDARD 11)
@@ -39,9 +39,9 @@ find_package(QApt REQUIRED)
 find_package(DtkWidget REQUIRED)
 
 # Tell CMake to create the executable
-add_executable(deepin-deb-installer ${SRCS} resources/resources.qrc)
-target_include_directories(deepin-deb-installer PUBLIC ${DtkWidget_INCLUDE_DIRS} ${OBJECT_BINARY_DIR})
-target_link_libraries(deepin-deb-installer
+add_executable(gxde-deb-installer ${SRCS} resources/resources.qrc)
+target_include_directories(gxde-deb-installer PUBLIC ${DtkWidget_INCLUDE_DIRS} ${OBJECT_BINARY_DIR})
+target_link_libraries(gxde-deb-installer
     QApt
     ${DtkWidget_LIBRARIES}
     ${Qt5Widgets_LIBRARIES}
@@ -56,15 +56,15 @@ endif ()
 # Install qm files
 file(GLOB QM_FILES "translations/*.qm")
 install(FILES ${QM_FILES}
-        DESTINATION share/deepin-deb-installer/translations)
+        DESTINATION share/gxde-deb-installer/translations)
 
 # Install icons
 foreach (ICON_SIZE 16 24 32 48 64 96 128 256)
-    install(FILES resources/images/deepin-deb-installer-${ICON_SIZE}px.svg
-            RENAME deepin-deb-installer.svg
+    install(FILES resources/images/gxde-deb-installer-${ICON_SIZE}px.svg
+            RENAME gxde-deb-installer.svg
             DESTINATION share/icons/hicolor/${ICON_SIZE}x${ICON_SIZE}/apps)
 endforeach ()
 
-install(TARGETS deepin-deb-installer DESTINATION bin)
-install(FILES deepin-deb-installer.desktop DESTINATION share/applications)
-install(FILES deepin-deb-installer.applications DESTINATION share/application-registry)
+install(TARGETS gxde-deb-installer DESTINATION bin)
+install(FILES gxde-deb-installer.desktop DESTINATION share/applications)
+install(FILES gxde-deb-installer.applications DESTINATION share/application-registry)
