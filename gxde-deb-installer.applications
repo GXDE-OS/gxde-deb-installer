@@ -1,7 +1,7 @@
 
-Deepin deb installer
-	command=deepin-deb-installer
-	name=Install Package (Deepin deb installer)
+GXDE deb installer
+	command=gxde-deb-installer
+	name=Install Package (GXDE deb installer)
 	can_open_multiple_files=true
 	expects_uris=false
 	requires_terminal=false
