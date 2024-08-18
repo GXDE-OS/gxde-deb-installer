@@ -9,6 +9,8 @@ Homepage: https://www.deepin.com/
 Package: gxde-deb-installer
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, libqapt3-runtime
+Replaces: deepin-deb-installer
+Provides: deepin-deb-installer
 Description: GXDE deb installer tool
  GXDE Package Manager is used to help users install and
  remove local software, supports to bulk install.
