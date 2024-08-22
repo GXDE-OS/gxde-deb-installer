@@ -71,7 +71,7 @@ DebInstaller::DebInstaller(QWidget *parent)
     wrapWidget->setLayout(m_centralLayout);
 
     DTitlebar *tb = titlebar();
-    tb->setIcon(QIcon::fromTheme("deepin-deb-installer"));
+    tb->setIcon(QIcon::fromTheme("gxde-deb-installer"));
     tb->setTitle(QString());
 #if DTK_VERSION >= 0x02000600
     tb->setBackgroundTransparent(true);
@@ -85,8 +85,8 @@ DebInstaller::DebInstaller(QWidget *parent)
     setCentralWidget(wrapWidget);
     setAcceptDrops(true);
     setFixedSize(480, 380);
-    setWindowTitle(tr("Deepin Package Manager"));
-    setWindowIcon(QIcon::fromTheme("deepin-deb-installer"));
+    setWindowTitle(tr("GXDE Package Manager"));
+    setWindowIcon(QIcon::fromTheme("gxde-deb-installer"));
     move(qApp->primaryScreen()->geometry().center() - geometry().center());
 
     connect(m_fileChooseWidget, &FileChooseWidget::packagesSelected, this, &DebInstaller::onPackagesSelected);
