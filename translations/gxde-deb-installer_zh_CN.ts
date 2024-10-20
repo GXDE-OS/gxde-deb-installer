@@ -1,18 +1,24 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="zh_CN">
 <context>
     <name>DebInstaller</name>
     <message>
-        <location filename="../debinstaller.cpp" line="62"/>
+        <location filename="../debinstaller.cpp" line="65"/>
         <source>Dark theme</source>
         <translation>深色主题</translation>
     </message>
     <message>
-        <location filename="../debinstaller.cpp" line="88"/>
-        <source>Deepin Package Manager</source>
-        <translation>深度软件包管理器</translation>
+        <location filename="../debinstaller.cpp" line="91"/>
+        <source>GXDE Package Manager</source>
+        <translation>GXDE 软件包管理器</translation>
     </message>
     <message>
-        <location filename="../debinstaller.cpp" line="293"/>
+        <source>Deepin Package Manager</source>
+        <translation type="vanished">深度软件包管理器</translation>
+    </message>
+    <message>
+        <location filename="../debinstaller.cpp" line="296"/>
         <source>Bulk Install</source>
         <translation>批量安装</translation>
     </message>
@@ -165,7 +171,7 @@
     <message>
         <location filename="../singleinstallpage.cpp" line="164"/>
         <source>Version: </source>
-        <translation>版本：</translation>
+        <translation>版本: </translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="320"/>
@@ -178,9 +184,33 @@
         <translation>卸载成功</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="389"/>
+        <location filename="../singleinstallpage.cpp" line="392"/>
+        <source>Older version installed</source>
+        <translation>已安装较旧的版本</translation>
+    </message>
+    <message>
+        <location filename="../singleinstallpage.cpp" line="393"/>
+        <source>Upgrade</source>
+        <translation>升级</translation>
+    </message>
+    <message>
+        <location filename="../singleinstallpage.cpp" line="397"/>
+        <source>Newer version installed</source>
+        <translation>已安装较新的版本</translation>
+    </message>
+    <message>
+        <location filename="../singleinstallpage.cpp" line="398"/>
+        <source>Downgrade</source>
+        <translation>降级</translation>
+    </message>
+    <message>
+        <location filename="../singleinstallpage.cpp" line="402"/>
+        <source>Unknown installation status</source>
+        <translation>安装状态未知</translation>
+    </message>
+    <message>
         <source>Other version installed: %1</source>
-        <translation>已安装其他版本：%1</translation>
+        <translation type="vanished">已安装其他版本：%1</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="333"/>
@@ -190,10 +220,10 @@
     <message>
         <location filename="../singleinstallpage.cpp" line="159"/>
         <source>Name: </source>
-        <translation>名称：</translation>
+        <translation>名称: </translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="387"/>
+        <location filename="../singleinstallpage.cpp" line="388"/>
         <source>Same version installed</source>
         <translation>已安装相同版本</translation>
     </message>
@@ -231,14 +261,22 @@ All dependencies will also be removed</source>
 <context>
     <name>main</name>
     <message>
-        <location filename="../main.cpp" line="52"/>
         <source>Deepin Package Manager</source>
-        <translation>深度软件包管理器</translation>
+        <translation type="vanished">深度软件包管理器</translation>
+    </message>
+    <message>
+        <source>Deepin Package Manager is used to help users install and remove local packages, supporting bulk install.</source>
+        <translation type="vanished">深度软件包管理器用于帮助用户安装和卸载本地软件包，支持批量安装。</translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="52"/>
+        <source>GXDE Package Manager</source>
+        <translation>GXDE 软件包管理器</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="53"/>
-        <source>Deepin Package Manager is used to help users install and remove local packages, supporting bulk install.</source>
-        <translation>深度软件包管理器用于帮助用户安装和卸载本地软件包，支持批量安装。</translation>
+        <source>GXDE Package Manager is used to help users install and remove local packages, supporting bulk install.</source>
+        <translation>GXDE 软件包管理器用于帮助用户安装和卸载本地软件包，支持批量安装。</translation>
     </message>
 </context>
 </TS>

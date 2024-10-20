@@ -1,18 +1,24 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="hu" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="hu">
 <context>
     <name>DebInstaller</name>
     <message>
-        <location filename="../debinstaller.cpp" line="62"/>
+        <location filename="../debinstaller.cpp" line="65"/>
         <source>Dark theme</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../debinstaller.cpp" line="88"/>
+        <location filename="../debinstaller.cpp" line="91"/>
+        <source>GXDE Package Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Deepin Package Manager</source>
-        <translation>Deepin csomagkezelő</translation>
+        <translation type="vanished">Deepin csomagkezelő</translation>
     </message>
     <message>
-        <location filename="../debinstaller.cpp" line="293"/>
+        <location filename="../debinstaller.cpp" line="296"/>
         <source>Bulk Install</source>
         <translation>Csoportos telepítés</translation>
     </message>
@@ -178,9 +184,33 @@
         <translation>Sikertelen telepítés</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="389"/>
+        <location filename="../singleinstallpage.cpp" line="392"/>
+        <source>Older version installed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../singleinstallpage.cpp" line="393"/>
+        <source>Upgrade</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../singleinstallpage.cpp" line="397"/>
+        <source>Newer version installed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../singleinstallpage.cpp" line="398"/>
+        <source>Downgrade</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../singleinstallpage.cpp" line="402"/>
+        <source>Unknown installation status</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Other version installed: %1</source>
-        <translation>Más verzió telepítve: %1</translation>
+        <translation type="vanished">Más verzió telepítve: %1</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="333"/>
@@ -193,7 +223,7 @@
         <translation>Név:</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="387"/>
+        <location filename="../singleinstallpage.cpp" line="388"/>
         <source>Same version installed</source>
         <translation>Ez a verzió már telepítve van</translation>
     </message>
@@ -224,20 +254,24 @@
         <location filename="../uninstallconfirmpage.cpp" line="101"/>
         <source>Are you sure you want to uninstall %1?
 All dependencies will also be removed</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
-        <location filename="../main.cpp" line="52"/>
         <source>Deepin Package Manager</source>
-        <translation>Deepin csomagkezelő</translation>
+        <translation type="vanished">Deepin csomagkezelő</translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="52"/>
+        <source>GXDE Package Manager</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.cpp" line="53"/>
-        <source>Deepin Package Manager is used to help users install and remove local packages, supporting bulk install.</source>
-        <translation type="unfinished"/>
+        <source>GXDE Package Manager is used to help users install and remove local packages, supporting bulk install.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

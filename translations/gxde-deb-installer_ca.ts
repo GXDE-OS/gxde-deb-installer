@@ -1,18 +1,24 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ca" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="ca">
 <context>
     <name>DebInstaller</name>
     <message>
-        <location filename="../debinstaller.cpp" line="62"/>
+        <location filename="../debinstaller.cpp" line="65"/>
         <source>Dark theme</source>
         <translation>Tema fosc</translation>
     </message>
     <message>
-        <location filename="../debinstaller.cpp" line="88"/>
-        <source>Deepin Package Manager</source>
-        <translation>Gestor de paquets del Deepin</translation>
+        <location filename="../debinstaller.cpp" line="91"/>
+        <source>GXDE Package Manager</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../debinstaller.cpp" line="293"/>
+        <source>Deepin Package Manager</source>
+        <translation type="vanished">Gestor de paquets del Deepin</translation>
+    </message>
+    <message>
+        <location filename="../debinstaller.cpp" line="296"/>
         <source>Bulk Install</source>
         <translation>Instal·lació massiva</translation>
     </message>
@@ -178,9 +184,33 @@
         <translation>Desinstal·lació correcta</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="389"/>
+        <location filename="../singleinstallpage.cpp" line="392"/>
+        <source>Older version installed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../singleinstallpage.cpp" line="393"/>
+        <source>Upgrade</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../singleinstallpage.cpp" line="397"/>
+        <source>Newer version installed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../singleinstallpage.cpp" line="398"/>
+        <source>Downgrade</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../singleinstallpage.cpp" line="402"/>
+        <source>Unknown installation status</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Other version installed: %1</source>
-        <translation>N&apos;hi ha una altra versió instal·lada: %1</translation>
+        <translation type="vanished">N&apos;hi ha una altra versió instal·lada: %1</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="333"/>
@@ -193,7 +223,7 @@
         <translation>Nom:</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="387"/>
+        <location filename="../singleinstallpage.cpp" line="388"/>
         <source>Same version installed</source>
         <translation>N&apos;hi ha instal·lada la mateixa versió.</translation>
     </message>
@@ -231,14 +261,22 @@ També se n&apos;eliminaran totes les dependències.</translation>
 <context>
     <name>main</name>
     <message>
-        <location filename="../main.cpp" line="52"/>
         <source>Deepin Package Manager</source>
-        <translation>Gestor de paquets del Deepin</translation>
+        <translation type="vanished">Gestor de paquets del Deepin</translation>
+    </message>
+    <message>
+        <source>Deepin Package Manager is used to help users install and remove local packages, supporting bulk install.</source>
+        <translation type="vanished">El Gestor de paquets del Deepin s&apos;usa per ajudar els usuaris a instal·lar i eliminar paquets locals. Admet la instal·lació massiva.</translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="52"/>
+        <source>GXDE Package Manager</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.cpp" line="53"/>
-        <source>Deepin Package Manager is used to help users install and remove local packages, supporting bulk install.</source>
-        <translation>El Gestor de paquets del Deepin s&apos;usa per ajudar els usuaris a instal·lar i eliminar paquets locals. Admet la instal·lació massiva.</translation>
+        <source>GXDE Package Manager is used to help users install and remove local packages, supporting bulk install.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
