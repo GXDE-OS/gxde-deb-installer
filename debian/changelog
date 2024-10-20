@@ -1,10 +1,10 @@
-gxde-deb-installer (1.4.0) UNRELEASED; urgency=medium
+gxde-deb-installer (1.4.0-1) UNRELEASED; urgency=medium
 
   
     Fix some pointer issues.
     Fix problems with deprecated packages.
     Added a information for downgrade and upgrade.
-
+    Add Translation
 
  -- gfdgd_xi <3025613752@qq.com>  Sat, 17 Aug 2024 19:41:27 +0800
 
