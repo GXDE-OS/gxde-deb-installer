@@ -1,9 +1,10 @@
-gxde-deb-installer (1.3.2.1) UNRELEASED; urgency=medium
+gxde-deb-installer (1.4.0) UNRELEASED; urgency=medium
 
-  * Non-maintainer upload.
-  * 
+  * Fix some pointer issues.
+  * Fix problems with deprecated packages.
+  * Added a information for downgrade and upgrade.
 
- -- gfdgd_xi <3025613752@qq.com>  Sat, 17 Aug 2024 19:41:27 +0800
+ -- gfdgd_xi <3025613752@qq.com>  Sun, 20 Oct 2024 22:12:15 +0800
 
 gxde-deb-installer (1.0.0-1) unstable; urgency=medium
 
