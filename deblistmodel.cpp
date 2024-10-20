@@ -78,7 +78,7 @@ bool DebListModel::isReady() const
     return m_packagesManager->isBackendReady();
 }
 
-const QList<DebFile *> DebListModel::preparedPackages() const
+const QList<std::shared_ptr<QApt::DebFile>> DebListModel::preparedPackages() const
 {
     return m_packagesManager->m_preparedPackages;
 }
@@ -98,7 +98,7 @@ int DebListModel::rowCount(const QModelIndex &parent) const
 QVariant DebListModel::data(const QModelIndex &index, int role) const
 {
     const int r = index.row();
-    const DebFile *deb = m_packagesManager->package(r);
+    const auto deb = m_packagesManager->package(r);
 
     switch (role)
     {
@@ -148,7 +148,7 @@ void DebListModel::installAll()
     m_workerStatus = WorkerProcessing;
     m_operatingIndex = 0;
 
-//    emit workerStarted();
+    // emit workerStarted();
 
     // start first
     installNextDeb();
@@ -162,10 +162,10 @@ void DebListModel::uninstallPackage(const int idx)
     m_workerStatus = WorkerProcessing;
     m_operatingIndex = idx;
 
-    DebFile *deb = m_packagesManager->package(m_operatingIndex);
+    auto deb = m_packagesManager->package(m_operatingIndex);
 
     const QStringList rdepends = m_packagesManager->packageReverseDependsList(deb->packageName(), deb->architecture());
-    Backend *b = m_packagesManager->m_backendFuture.result();
+    auto b = m_packagesManager->m_backendFuture.result();
     for (const auto &r : rdepends)
         b->markPackageForRemoval(r);
     b->markPackageForRemoval(deb->packageName() + ':' + deb->architecture());
@@ -195,7 +195,7 @@ void DebListModel::removePackage(const int idx)
     m_packagesManager->removePackage(idx);
 }
 
-void DebListModel::appendPackage(DebFile *package)
+void DebListModel::appendPackage(std::shared_ptr<QApt::DebFile> package)
 {
     Q_ASSERT_X(m_workerStatus == WorkerPrepare, Q_FUNC_INFO, "installer status error");
 
@@ -248,7 +248,7 @@ void DebListModel::onTransactionStatusChanged(TransactionStatus stat)
 
 void DebListModel::reset()
 {
-    Q_ASSERT_X(m_workerStatus == WorkerFinished, Q_FUNC_INFO, "worker status error");
+    Q_ASSERT_X((m_workerStatus == WorkerFinished) || (m_workerStatus == WorkerPrepare), Q_FUNC_INFO, "worker status error");
 
     m_workerStatus = WorkerPrepare;
     m_operatingIndex = 0;
@@ -324,7 +324,7 @@ void DebListModel::onTransactionFinished()
     // report new progress
     emit workerProgressChanged(100. * (m_operatingIndex + 1) / m_packagesManager->m_preparedPackages.size());
 
-    DebFile *deb = m_packagesManager->package(m_operatingIndex);
+    auto deb = m_packagesManager->package(m_operatingIndex);
     qDebug() << "install" << deb->packageName() << "finished with exit status:" << trans->exitStatus();
 
     if (trans->exitStatus())
@@ -353,7 +353,7 @@ void DebListModel::onDependsInstallTransactionFinished()
 
     const auto ret = trans->exitStatus();
 
-    DebFile *deb = m_packagesManager->package(m_operatingIndex);
+    auto deb = m_packagesManager->package(m_operatingIndex);
     qDebug() << "install" << deb->packageName() << "dependencies finished with exit status:" << ret;
 
     if (ret)
@@ -391,9 +391,9 @@ void DebListModel::installNextDeb()
     }
 
     // fetch next deb
-    DebFile *deb = m_packagesManager->package(m_operatingIndex);
+    auto deb = m_packagesManager->package(m_operatingIndex);
 
-    auto * const backend = m_packagesManager->m_backendFuture.result();
+    auto const backend = m_packagesManager->m_backendFuture.result();
     Transaction *trans = nullptr;
 
     // reset package depends status

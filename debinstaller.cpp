@@ -26,6 +26,8 @@
 #include "deblistmodel.h"
 #include "uninstallconfirmpage.h"
 
+#include <memory>
+
 #include <QKeyEvent>
 #include <QGuiApplication>
 #include <QScreen>
@@ -42,6 +44,7 @@
 #include <DTitlebar>
 #include <DRecentManager>
 #include <DThemeManager>
+#include <qobject.h>
 
 using QApt::DebFile;
 
@@ -55,7 +58,7 @@ DebInstaller::DebInstaller(QWidget *parent)
     : DMainWindow(parent),
 
       m_fileListModel(new DebListModel(this)),
-      m_fileChooseWidget(new FileChooseWidget),
+      m_fileChooseWidget(new FileChooseWidget(this)),
       m_centralLayout(new QStackedLayout),
       m_qsettings(new QSettings(this)),
       m_tbMenu(new QMenu(this)),
@@ -67,7 +70,7 @@ DebInstaller::DebInstaller(QWidget *parent)
     m_centralLayout->setContentsMargins(0, 0, 0, 0);
     m_centralLayout->setSpacing(0);
 
-    QWidget *wrapWidget = new QWidget;
+    QWidget *wrapWidget = new QWidget(this);
     wrapWidget->setLayout(m_centralLayout);
 
     DTitlebar *tb = titlebar();
@@ -194,12 +197,12 @@ void DebInstaller::onPackagesSelected(const QStringList &packages)
 {
     for (const auto &package : packages)
     {
-        DebFile *p = new DebFile(package);
+        auto p = std::make_shared<DebFile>(package);
         if (!p->isValid())
         {
             qWarning() << "package invalid: " << package;
 
-            delete p;
+            p.reset();
             continue;
         }
 
@@ -220,7 +223,7 @@ void DebInstaller::showUninstallConfirmPage()
 
     const QModelIndex index = m_fileListModel->first();
 
-    UninstallConfirmPage *p = new UninstallConfirmPage;
+    UninstallConfirmPage *p = new UninstallConfirmPage(this);
     p->setPackage(index.data().toString());
     p->setRequiredList(index.data(DebListModel::PackageReverseDependsListRole).toStringList());
 
@@ -281,7 +284,7 @@ void DebInstaller::refreshInstallPage()
         // single package install
         titlebar()->setTitle(QString());
 
-        SingleInstallPage *singlePage = new SingleInstallPage(m_fileListModel);
+        SingleInstallPage *singlePage = new SingleInstallPage(m_fileListModel, this);
         singlePage->setObjectName("SingleInstallPage");
         connect(singlePage, &SingleInstallPage::back, this, &DebInstaller::reset);
         connect(singlePage, &SingleInstallPage::requestUninstallConfirm, this, &DebInstaller::showUninstallConfirmPage);
@@ -292,7 +295,7 @@ void DebInstaller::refreshInstallPage()
         // multiple packages install
         titlebar()->setTitle(tr("Bulk Install"));
 
-        MultipleInstallPage *multiplePage = new MultipleInstallPage(m_fileListModel);
+        MultipleInstallPage *multiplePage = new MultipleInstallPage(m_fileListModel, this);
         multiplePage->setObjectName("MultipleInstallPage");
 
         connect(multiplePage, &MultipleInstallPage::back, this, &DebInstaller::reset);

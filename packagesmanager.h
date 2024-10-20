@@ -24,8 +24,11 @@
 
 #include "result.h"
 
+#include <memory>
+
 #include <QObject>
 #include <QFuture>
+#include <QSharedPointer>
 
 #include <QApt/Backend>
 #include <QApt/DebFile>
@@ -83,20 +86,20 @@ public:
     void reset();
     void resetPackageDependsStatus(const int index);
     void removePackage(const int index);
-    void appendPackage(QApt::DebFile *debPackage);
+    void appendPackage(std::shared_ptr<QApt::DebFile> debPackage);
 
-    QApt::DebFile * const package(const int index) const { return m_preparedPackages[index]; }
-    QApt::Backend * const backend() const { return m_backendFuture.result(); }
+    std::shared_ptr<QApt::DebFile> const package(const int index) const { return m_preparedPackages[index]; }
+    QSharedPointer<QApt::Backend> const backend() const { return m_backendFuture.result(); }
 
 private:
     const PackageDependsStatus checkDependsPackageStatus(QSet<QString> &choosed_set,const QString &architecture, const QList<QApt::DependencyItem> &depends);
     const PackageDependsStatus checkDependsPackageStatus(QSet<QString> &choosed_set,const QString &architecture, const QApt::DependencyItem &candicate);
     const PackageDependsStatus checkDependsPackageStatus(QSet<QString> &choosed_set,const QString &architecture, const QApt::DependencyInfo &dependencyInfo);
-    QApt::Package * packageWithArch(const QString &packageName, const QString &sysArch, const QString &annotation = QString());
+    std::pair<QApt::Package *, bool> packageWithArch(const QString &packageName, const QString &sysArch, const QString &annotation = QString());
 
 private:
-    QFuture<QApt::Backend *> m_backendFuture;
-    QList<QApt::DebFile *> m_preparedPackages;
+    QFuture<QSharedPointer<QApt::Backend>> m_backendFuture;
+    QList<std::shared_ptr<QApt::DebFile>> m_preparedPackages;
     QHash<int, int> m_packageInstallStatus;
     QHash<int, PackageDependsStatus> m_packageDependsStatus;
     QSet<QByteArray> m_appendedPackagesMd5;

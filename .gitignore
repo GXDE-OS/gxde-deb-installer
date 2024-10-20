@@ -22,3 +22,5 @@ build*/
 
 # vim tmp file
 *.swp
+
+/.cache/

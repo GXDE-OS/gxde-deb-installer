@@ -25,6 +25,9 @@
 #include <QtConcurrent>
 #include <QSet>
 #include <QPair>
+#include <qapplication.h>
+#include <qapt/globals.h>
+#include <qobject.h>
 
 using namespace QApt;
 
@@ -96,9 +99,9 @@ bool dependencyVersionMatch(const int result, const RelationType relation)
     return true;
 }
 
-Backend *init_backend()
+QSharedPointer<Backend> init_backend()
 {
-    Backend *b = new Backend;
+    auto b = QSharedPointer<Backend>(new Backend(), &QObject::deleteLater);
 
     if (b->init())
         return b;
@@ -120,8 +123,8 @@ bool PackagesManager::isBackendReady()
 
 bool PackagesManager::isArchError(const int idx)
 {
-    Backend *b = m_backendFuture.result();
-    DebFile *deb = m_preparedPackages[idx];
+    auto b = m_backendFuture.result();
+    auto deb = m_preparedPackages[idx];
 
     const QString arch = deb->architecture();
 
@@ -133,7 +136,7 @@ bool PackagesManager::isArchError(const int idx)
 
 const ConflictResult PackagesManager::packageConflictStat(const int index)
 {
-    auto *p = m_preparedPackages[index];
+    auto p = m_preparedPackages[index];
 
     return isConflictSatisfy(p->architecture(), p->conflicts());
 }
@@ -180,7 +183,7 @@ const ConflictResult PackagesManager::isInstalledConflict(const QString &package
 
     if (sysConflicts.isEmpty())
     {
-        Backend *b = m_backendFuture.result();
+        auto b = m_backendFuture.result();
         for (Package *p : b->availablePackages())
         {
             if (!p->isInstalled())
@@ -230,7 +233,7 @@ const ConflictResult PackagesManager::isConflictSatisfy(const QString &arch, con
         for (const auto &conflict : conflict_list)
         {
             const QString name = conflict.packageName();
-            Package *p = packageWithArch(name, arch, conflict.multiArchAnnotation());
+            Package *p = std::get<0>(packageWithArch(name, arch, conflict.multiArchAnnotation()));
 
             if (!p || !p->isInstalled())
                 continue;
@@ -276,7 +279,7 @@ int PackagesManager::packageInstallStatus(const int index)
 
     const QString packageName = m_preparedPackages[index]->packageName();
     const QString packageArch = m_preparedPackages[index]->architecture();
-    Backend *b = m_backendFuture.result();
+    auto b = m_backendFuture.result();
     Package *p = b->package(packageName + ":" + packageArch);
 
     int ret = DebListModel::NotInstalled;
@@ -311,12 +314,12 @@ PackageDependsStatus PackagesManager::packageDependsStatus(const int index)
     if (isArchError(index))
         return PackageDependsStatus::_break(QString());
 
-    DebFile *deb = m_preparedPackages[index];
+    auto deb = m_preparedPackages[index];
     const QString architecture = deb->architecture();
 
     PackageDependsStatus ret = PackageDependsStatus::ok();
 
-    // conflicts
+    // Check if some installed packages are present in current package's conflicts part.
     const ConflictResult debConflitsResult = isConflictSatisfy(architecture, deb->conflicts());
 
     if (!debConflitsResult.is_ok())
@@ -325,6 +328,7 @@ PackageDependsStatus PackagesManager::packageDependsStatus(const int index)
         ret.package = debConflitsResult.unwrap();
         ret.status = DebListModel::DependsBreak;
     } else {
+        // Check if some installed packages list current package as a conflict item.
         const ConflictResult localConflictsResult = isInstalledConflict(deb->packageName(), deb->version(), architecture);
         if (!localConflictsResult.is_ok())
         {
@@ -361,7 +365,7 @@ const QString PackagesManager::packageInstalledVersion(const int index)
     Q_ASSERT(m_packageInstallStatus[index] == DebListModel::InstalledEarlierVersion ||
              m_packageInstallStatus[index] == DebListModel::InstalledLaterVersion);
 
-    Backend *b = m_backendFuture.result();
+    auto b = m_backendFuture.result();
     Package *p = b->package(m_preparedPackages[index]->packageName());
 
     return p->installedVersion();
@@ -372,7 +376,7 @@ const QStringList PackagesManager::packageAvailableDepends(const int index)
     Q_ASSERT(m_packageDependsStatus.contains(index));
     Q_ASSERT(m_packageDependsStatus[index].isAvailable());
 
-    DebFile *deb = m_preparedPackages[index];
+    auto deb = m_preparedPackages[index];
     QSet<QString> choose_set;
     const QString debArch = deb->architecture();
     const auto &depends = deb->depends();
@@ -395,7 +399,7 @@ void PackagesManager::packageCandidateChoose(QSet<QString> &choosed_set, const Q
 
     for (const auto &info : candidateList)
     {
-        Package *dep = packageWithArch(info.packageName(), debArch, info.multiArchAnnotation());
+        Package *dep = std::get<0>(packageWithArch(info.packageName(), debArch, info.multiArchAnnotation()));
         if (!dep)
             continue;
 
@@ -437,7 +441,7 @@ void PackagesManager::packageCandidateChoose(QSet<QString> &choosed_set, const Q
 
 const QStringList PackagesManager::packageReverseDependsList(const QString &packageName, const QString &sysArch)
 {
-    Package *p = packageWithArch(packageName, sysArch);
+    Package *p = std::get<0>(packageWithArch(packageName, sysArch));
     Q_ASSERT(p);
 
     QSet<QString> ret { packageName };
@@ -454,7 +458,7 @@ const QStringList PackagesManager::packageReverseDependsList(const QString &pack
         if (ret.contains(item))
             continue;
 
-        Package *p = packageWithArch(item, sysArch);
+        Package *p = std::get<0>(packageWithArch(item, sysArch));
         if (!p || !p->isInstalled())
             continue;
 
@@ -500,7 +504,7 @@ void PackagesManager::resetPackageDependsStatus(const int index)
 
 void PackagesManager::removePackage(const int index)
 {
-    DebFile *deb = m_preparedPackages[index];
+    auto deb = m_preparedPackages[index];
     const auto md5 = deb->md5Sum();
 
     m_appendedPackagesMd5.remove(md5);
@@ -509,7 +513,7 @@ void PackagesManager::removePackage(const int index)
     m_packageDependsStatus.clear();
 }
 
-void PackagesManager::appendPackage(DebFile *debPackage)
+void PackagesManager::appendPackage(std::shared_ptr<QApt::DebFile> debPackage)
 {
     const auto md5 = debPackage->md5Sum();
     if (m_appendedPackagesMd5.contains(md5))
@@ -521,6 +525,20 @@ void PackagesManager::appendPackage(DebFile *debPackage)
 
 const PackageDependsStatus PackagesManager::checkDependsPackageStatus(QSet<QString> &choosed_set, const QString &architecture, const QList<DependencyItem> &depends)
 {
+    qDebug() << "depends List size: " << depends.size();
+    auto index_ = new int(0);
+    // Print each DependencyItem with proper intendes, using cout
+    for (const auto &item : depends) {
+        qDebug() << "DependencyItem: " << *index_;
+        for (const auto &info : item) {
+            // If more than 1 items are in the DependencyItem, 
+            // this means that this is a alternative dependency list.
+            qDebug() << "  DependencyInfo: " << DependencyInfo::typeName(info.dependencyType()) << info.packageName() << relationName(info.relationType()) << info.packageVersion();
+        }
+        ++(*index_);
+    }
+    delete index_; index_ = nullptr;
+
     PackageDependsStatus ret = PackageDependsStatus::ok();
 
     for (const auto &candicate_list : depends)
@@ -555,7 +573,9 @@ const PackageDependsStatus PackagesManager::checkDependsPackageStatus(QSet<QStri
 {
     const QString package_name = dependencyInfo.packageName();
 
-    Package *p = packageWithArch(package_name, architecture, dependencyInfo.multiArchAnnotation());
+    auto res_ = packageWithArch(package_name, architecture, dependencyInfo.multiArchAnnotation());
+    Package *p = std::get<0>(res_);
+    bool omitVersionRequire = std::get<1>(res_);
 
     if (!p)
     {
@@ -577,6 +597,15 @@ const PackageDependsStatus PackagesManager::checkDependsPackageStatus(QSet<QStri
 
     if (!installedVersion.isEmpty())
     {
+        if (omitVersionRequire) {
+            // Here, if the intended deprecated package is required to be (<=) than the installed version, we omit the version check.
+            if (dependencyInfo.relationType() == QApt::RelationType::GreaterOrEqual ||
+                dependencyInfo.relationType() == QApt::RelationType::GreaterThan ||
+                dependencyInfo.relationType() == QApt::RelationType::NoOperand)
+            qDebug() << "omit version as required";
+            return PackageDependsStatus::ok();
+        }
+
         const int result = Package::compareVersion(installedVersion, dependencyInfo.packageVersion());
         if (dependencyVersionMatch(result, relation))
             return PackageDependsStatus::ok();
@@ -614,7 +643,7 @@ const PackageDependsStatus PackagesManager::checkDependsPackageStatus(QSet<QStri
         // check arch conflicts
         if (p->multiArchType() == MultiArchSame)
         {
-            Backend *b = backend();
+            auto b = backend();
             for (const auto &arch : b->architectures())
             {
                 if (arch == p->architecture())
@@ -634,7 +663,7 @@ const PackageDependsStatus PackagesManager::checkDependsPackageStatus(QSet<QStri
         {
             qDebug() << "depends break because conflict, ready to find providers" << p->name();
 
-            Backend *b = m_backendFuture.result();
+            auto b = m_backendFuture.result();
             for (auto *ap : b->availablePackages())
             {
                 if (!ap->providesList().contains(p->name()))
@@ -703,10 +732,10 @@ const PackageDependsStatus PackagesManager::checkDependsPackageStatus(QSet<QStri
     }
 }
 
-Package *PackagesManager::packageWithArch(const QString &packageName, const QString &sysArch, const QString &annotation)
+std::pair<QApt::Package *, bool> PackagesManager::packageWithArch(const QString &packageName, const QString &sysArch, const QString &annotation)
 {
     qDebug() << "package with arch" << packageName << sysArch << annotation;
-    Backend *b = m_backendFuture.result();
+    auto b = m_backendFuture.result();
     Package *p = b->package(packageName + resolvMultiArchAnnotation(annotation, sysArch));
 
     do {
@@ -722,15 +751,18 @@ Package *PackagesManager::packageWithArch(const QString &packageName, const QStr
     } while(false);
 
     if (p)
-        return p;
+        return {p, false};
 
     qDebug() << "check virtual package providers for package" << packageName << sysArch << annotation;
     // check virtual package providers
+    // Now we can safely omit the version requirement.
+    // As this is a fine replacement for the deprecated package. 
+    // Setting the second param to true to indicate this
     for (auto *ap : b->availablePackages())
-        if (ap->name() != packageName && ap->providesList().contains(packageName))
-            return packageWithArch(ap->name(), sysArch, annotation);
+        if (ap->name() != packageName && ap->providesList().contains(packageName)) 
+            return {std::get<0>(packageWithArch(ap->name(), sysArch, annotation)), true};
 
-    return nullptr;
+    return {nullptr, false};
 }
 
 PackageDependsStatus PackageDependsStatus::ok()

@@ -22,6 +22,8 @@
 #ifndef DEBLISTMODEL_H
 #define DEBLISTMODEL_H
 
+#include <memory>
+
 #include <QAbstractListModel>
 #include <QFuture>
 #include <QPointer>
@@ -89,7 +91,7 @@ public:
     void reset();
     bool isReady() const;
     bool isWorkerPrepare() const { return m_workerStatus == WorkerPrepare; }
-    const QList<QApt::DebFile *> preparedPackages() const;
+    const QList<std::shared_ptr<QApt::DebFile>> preparedPackages() const;
     QModelIndex first() const;
 
     int rowCount(const QModelIndex &parent) const override;
@@ -110,7 +112,7 @@ public slots:
     void installAll();
     void uninstallPackage(const int idx);
     void removePackage(const int idx);
-    void appendPackage(QApt::DebFile *package);
+    void appendPackage(std::shared_ptr<QApt::DebFile> package);
     void onTransactionErrorOccurred();
     void onTransactionStatusChanged(QApt::TransactionStatus stat);
 

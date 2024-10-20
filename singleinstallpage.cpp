@@ -97,22 +97,22 @@ SingleInstallPage::SingleInstallPage(DebListModel *model, QWidget *parent)
       m_workerStarted(false),
       m_packagesModel(model),
 
-      m_itemInfoWidget(new QWidget),
-      m_packageIcon(new QLabel),
-      m_packageName(new QLabel),
-      m_packageVersion(new QLabel),
-      m_packageDescription(new QLabel),
-      m_tipsLabel(new QLabel),
-      m_progress(new WorkerProgress),
-      m_workerInfomation(new QTextEdit),
-      m_strengthWidget(new QWidget),
-      m_infoControlButton(new InfoControlButton(tr("Display details"), tr("Collapse"))),
-      m_installButton(new BlueButton),
-      m_uninstallButton(new GrayButton),
-      m_reinstallButton(new GrayButton),
-      m_confirmButton(new GrayButton),
-      m_backButton(new GrayButton),
-      m_doneButton(new BlueButton)
+      m_itemInfoWidget(new QWidget(this)),
+      m_packageIcon(new QLabel(this)),
+      m_packageName(new QLabel(this)),
+      m_packageVersion(new QLabel(this)),
+      m_packageDescription(new QLabel(this)),
+      m_tipsLabel(new QLabel(this)),
+      m_progress(new WorkerProgress(this)),
+      m_workerInfomation(new QTextEdit(this)),
+      m_strengthWidget(new QWidget(this)),
+      m_infoControlButton(new InfoControlButton(tr("Display details"), tr("Collapse"), this)),
+      m_installButton(new BlueButton(this)),
+      m_uninstallButton(new GrayButton(this)),
+      m_reinstallButton(new GrayButton(this)),
+      m_confirmButton(new GrayButton(this)),
+      m_backButton(new GrayButton(this)),
+      m_doneButton(new BlueButton(this))
 {
     m_packageName->setObjectName("PackageName");
     m_packageVersion->setObjectName("PackageVersion");
@@ -351,7 +351,7 @@ void SingleInstallPage::setPackageInfo()
 {
     qApp->processEvents();
 
-    DebFile *package = m_packagesModel->preparedPackages().first();
+    auto package = m_packagesModel->preparedPackages().first();
 
     const QIcon icon = QIcon::fromTheme("application-vnd.debian.binary-package", QIcon::fromTheme("debian-swirl"));
     const QPixmap iconPix = icon.pixmap(m_packageIcon->size());
@@ -373,7 +373,7 @@ void SingleInstallPage::setPackageInfo()
     const int installStat = index.data(DebListModel::PackageVersionStatusRole).toInt();
 
     const bool installed = installStat != DebListModel::NotInstalled;
-    const bool installedSameVersion = installStat == DebListModel::InstalledSameVersion;
+    const auto installedOtherVersion = installStat;
     m_installButton->setVisible(!installed);
     m_uninstallButton->setVisible(installed);
     m_reinstallButton->setVisible(installed);
@@ -383,14 +383,30 @@ void SingleInstallPage::setPackageInfo()
 
     if (installed)
     {
-        if (installedSameVersion)
-            m_tipsLabel->setText(tr("Same version installed"));
-        else
-            m_tipsLabel->setText(tr("Other version installed: %1").arg(index.data(DebListModel::PackageInstalledVersionRole).toString()));
+        switch(installedOtherVersion){
+            case DebListModel::InstalledSameVersion: {
+                m_tipsLabel->setText(tr("Same version installed"));
+                break;
+            }
+            case DebListModel::InstalledEarlierVersion: {
+                m_tipsLabel->setText(tr("Older version installed"));
+                m_reinstallButton->setText(tr("Upgrade"));
+                break;
+            }
+            case DebListModel::InstalledLaterVersion: {
+                m_tipsLabel->setText(tr("Newer version installed"));
+                m_reinstallButton->setText(tr("Downgrade"));
+                break;
+            }
+            default: {
+                m_tipsLabel->setText(tr("Unknown installation status"));
+            }
+        }
         return;
     }
 
-    // package depends status
+    // package depends status.
+    // Only shown when the package is not installed.
     const int dependsStat = index.data(DebListModel::PackageDependsStatusRole).toInt();
     if (dependsStat == DebListModel::DependsBreak)
     {
