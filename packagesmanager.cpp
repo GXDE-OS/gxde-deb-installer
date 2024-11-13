@@ -27,6 +27,7 @@
 #include <QPair>
 #include <qapplication.h>
 #include <qapt/globals.h>
+#include <qapt/package.h>
 #include <qobject.h>
 
 using namespace QApt;
@@ -397,6 +398,48 @@ void PackagesManager::packageCandidateChoose(QSet<QString> &choosed_set, const Q
 {
     bool choosed = false;
 
+    for (const auto &info : candidateList) \
+    {
+        Package *dep = std::get<0>(packageWithArch(info.packageName(), debArch, info.multiArchAnnotation()));
+        if (!dep)
+            continue;
+
+        const auto choosed_name = dep->name() + resolvMultiArchAnnotation(QString(), dep->architecture());
+        if (choosed_set.contains(choosed_name))
+        {
+            choosed = true;
+            break;
+        }
+
+        if (!dep->installedVersion().isEmpty())
+        {
+            // Only check for update if package requirement is >= or >
+            if (info.relationType() == QApt::RelationType::GreaterOrEqual || info.relationType() == QApt::RelationType::GreaterThan)
+            {
+                auto compare_result = QApt::Package::compareVersion(dep->installedVersion(), dep->version());
+                if (compare_result <= 0) {
+                    // Try to update
+                    // pass if break
+                    QSet<QString> set = choosed_set;
+                    set << choosed_name;
+                    const auto stat = checkDependsPackageStatus(set, dep->architecture(), dep->depends());
+                    if (stat.isBreak())
+                    {
+                        qDebug() << "depends error in choose candidate" << dep->name();
+                    }
+                    else 
+                    {
+                        choosed = true;
+                        choosed_set << choosed_name;
+                        packageCandidateChoose(choosed_set, debArch, dep->depends());
+                    }
+                }
+                
+            }      
+            return; // Got local version, lol
+        }
+    }
+
     for (const auto &info : candidateList)
     {
         Package *dep = std::get<0>(packageWithArch(info.packageName(), debArch, info.multiArchAnnotation()));
@@ -410,7 +453,8 @@ void PackagesManager::packageCandidateChoose(QSet<QString> &choosed_set, const Q
             break;
         }
 
-        // TODO: upgrade?
+        // Upgrade is checked above
+        // Thus only check for install
         if (!dep->installedVersion().isEmpty())
             return;
 
