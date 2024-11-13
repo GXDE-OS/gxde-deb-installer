@@ -398,7 +398,7 @@ void PackagesManager::packageCandidateChoose(QSet<QString> &choosed_set, const Q
 {
     bool choosed = false;
 
-    for (const auto &info : candidateList) \
+    for (const auto &info : candidateList)
     {
         Package *dep = std::get<0>(packageWithArch(info.packageName(), debArch, info.multiArchAnnotation()));
         if (!dep)
