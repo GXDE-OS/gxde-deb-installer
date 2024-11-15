@@ -148,7 +148,7 @@ void PackagesListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &
             painter->setPen(QColor(255, 109, 109));
         }
     } else {
-        info_str = index.data(DebListModel::PackageDescriptionRole).toString();
+        info_str = QString::fromUtf8(index.data(DebListModel::PackageDescriptionRole).toString().toLatin1());
         painter->setPen(QColor(90, 90, 90));
     }
 
