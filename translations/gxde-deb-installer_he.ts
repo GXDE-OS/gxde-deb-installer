@@ -4,12 +4,12 @@
 <context>
     <name>DebInstaller</name>
     <message>
-        <location filename="../debinstaller.cpp" line="65"/>
+        <location filename="../debinstaller.cpp" line="66"/>
         <source>Dark theme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../debinstaller.cpp" line="91"/>
+        <location filename="../debinstaller.cpp" line="94"/>
         <source>GXDE Package Manager</source>
         <translation type="unfinished"></translation>
     </message>
@@ -18,7 +18,7 @@
         <translation type="vanished">מנהל החבילות של Deepin</translation>
     </message>
     <message>
-        <location filename="../debinstaller.cpp" line="296"/>
+        <location filename="../debinstaller.cpp" line="363"/>
         <source>Bulk Install</source>
         <translation>התקנה קבוצתית</translation>
     </message>
@@ -46,13 +46,13 @@
         <translation>ההתקנה נכשלה</translation>
     </message>
     <message>
-        <location filename="../deblistmodel.cpp" line="296"/>
-        <location filename="../deblistmodel.cpp" line="303"/>
+        <location filename="../deblistmodel.cpp" line="302"/>
+        <location filename="../deblistmodel.cpp" line="309"/>
         <source>Broken Dependencies: %1</source>
         <translation>תלויות פגומות: %1</translation>
     </message>
     <message>
-        <location filename="../deblistmodel.cpp" line="299"/>
+        <location filename="../deblistmodel.cpp" line="305"/>
         <source>Unmatched package architecture</source>
         <translation>ארכיטקטורת החבילה אינה תואמת</translation>
     </message>
@@ -129,82 +129,87 @@
 <context>
     <name>SingleInstallPage</name>
     <message>
-        <location filename="../singleinstallpage.cpp" line="109"/>
+        <location filename="../singleinstallpage.cpp" line="110"/>
         <source>Collapse</source>
         <translation>צמצום</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="109"/>
+        <location filename="../singleinstallpage.cpp" line="110"/>
         <source>Display details</source>
         <translation>הצגת פרטים</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="141"/>
+        <location filename="../singleinstallpage.cpp" line="144"/>
         <source>Install</source>
         <translation>התקנה</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="143"/>
+        <location filename="../singleinstallpage.cpp" line="146"/>
         <source>Remove</source>
         <translation>הסרה</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="145"/>
+        <location filename="../singleinstallpage.cpp" line="148"/>
         <source>Reinstall</source>
         <translation>התקנה מחדש</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="147"/>
+        <location filename="../singleinstallpage.cpp" line="150"/>
         <source>OK</source>
         <translation>אישור</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="149"/>
+        <location filename="../singleinstallpage.cpp" line="152"/>
         <source>Back</source>
         <translation>חזרה</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="151"/>
+        <location filename="../singleinstallpage.cpp" line="154"/>
         <source>Done</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="164"/>
+        <location filename="../singleinstallpage.cpp" line="167"/>
         <source>Version: </source>
         <translation>גרסה:</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="320"/>
+        <location filename="../singleinstallpage.cpp" line="172"/>
+        <source>Architecture: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../singleinstallpage.cpp" line="330"/>
         <source>Installed successfully</source>
         <translation>הותקן בהצלחה</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="322"/>
+        <location filename="../singleinstallpage.cpp" line="332"/>
         <source>Uninstalled successfully</source>
         <translation>הוסר בהצלחה</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="392"/>
+        <location filename="../singleinstallpage.cpp" line="412"/>
         <source>Older version installed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="393"/>
+        <location filename="../singleinstallpage.cpp" line="413"/>
         <source>Upgrade</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="397"/>
+        <location filename="../singleinstallpage.cpp" line="417"/>
         <source>Newer version installed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="398"/>
+        <location filename="../singleinstallpage.cpp" line="418"/>
         <source>Downgrade</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="402"/>
+        <location filename="../singleinstallpage.cpp" line="422"/>
         <source>Unknown installation status</source>
         <translation type="unfinished"></translation>
     </message>
@@ -213,17 +218,17 @@
         <translation type="vanished">גרסה אחר מותקנת: %1</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="333"/>
+        <location filename="../singleinstallpage.cpp" line="343"/>
         <source>Uninstall Failed</source>
         <translation>ההסרה נכשלה</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="159"/>
+        <location filename="../singleinstallpage.cpp" line="162"/>
         <source>Name: </source>
         <translation>שם:</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="388"/>
+        <location filename="../singleinstallpage.cpp" line="408"/>
         <source>Same version installed</source>
         <translation>הותקנה אותה הגרסה</translation>
     </message>
@@ -264,12 +269,12 @@ All dependencies will also be removed</source>
         <translation type="vanished">מנהל החבילות של Deepin</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="52"/>
+        <location filename="../main.cpp" line="54"/>
         <source>GXDE Package Manager</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="53"/>
+        <location filename="../main.cpp" line="55"/>
         <source>GXDE Package Manager is used to help users install and remove local packages, supporting bulk install.</source>
         <translation type="unfinished"></translation>
     </message>

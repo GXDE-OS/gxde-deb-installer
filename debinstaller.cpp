@@ -65,8 +65,6 @@ DebInstaller::DebInstaller(QWidget *parent)
       m_tbMenu(new QMenu(this)),
       m_darkThemeAction(new QAction(tr("Dark theme"), this))
 {
-    // 创建临时目录
-    m_tempDir = createTempDir();
     m_fileChooseWidget->setObjectName("FileChooseWidget");
 
     m_centralLayout->addWidget(m_fileChooseWidget);
@@ -211,21 +209,19 @@ void DebInstaller::onPackagesSelected(const QStringList &packages)
         DRecentData data;
         data.appName = "Deepin Deb Installer";
         data.appExec = "deepin-deb-installer";
-        PackagesManager::TurnPackage turnStatus = PackagesManager::TurnPackage::None;
+        TurnPackageArchitecture::TurnPackage turnStatus = TurnPackageArchitecture::TurnPackage::None;
         // 判断是否为 loong64 新世界且包架构代号不是 loongarch64
         // 即设置为 loong64 且尝试安装旧世界的包，将会尝试转包
-        //auto const backend = PackagesManagerm_backendFuture.result();
-
         auto backend = PackagesManager().m_backendFuture.result();
         if (p->architecture() == "loongarch64" &&
             backend->architectures().contains("loong64") &&
             !backend->architectures().contains("loongarch64")) {
             // 尝试转包
-            QString debPath = turnLoongarchABI1ToABI2(p->filePath());
+            QString debPath = m_debTurner.turnLoongarchABI1ToABI2(p->filePath());
             qDebug() << debPath;
             if (debPath != "") {
                 p = std::make_shared<DebFile>(debPath);
-                turnStatus = PackagesManager::TurnPackage::Loongarch64ToLoong64;
+                turnStatus = TurnPackageArchitecture::TurnPackage::Loongarch64ToLoong64;
             }
         }
         DRecentManager::addItem(package, data);
@@ -237,7 +233,7 @@ void DebInstaller::onPackagesSelected(const QStringList &packages)
     refreshInstallPage();
 }
 
-void DebInstaller::unpackLoongarchToLoong64Shell()
+/*void DebInstaller::unpackLoongarchToLoong64Shell()
 {
     QFile readShell(":/loongarch-to-loong64.sh");
     QFile writeShell(m_tempDir + "/loongarch-to-loong64.sh");
@@ -246,9 +242,9 @@ void DebInstaller::unpackLoongarchToLoong64Shell()
     writeShell.write(readShell.readAll());
     readShell.close();
     writeShell.close();
-}
+}*/
 
-QString DebInstaller::turnLoongarchABI1ToABI2(QString debPath)
+/*QString DebInstaller::turnLoongarchABI1ToABI2(QString debPath)
 {
     if (!QFile::exists(m_tempDir + "/loongarch-to-loong64.sh")) {
         unpackLoongarchToLoong64Shell();
@@ -265,14 +261,11 @@ QString DebInstaller::turnLoongarchABI1ToABI2(QString debPath)
         return newPath;
     }
     return "";
-}
+}*/
 
-QString DebInstaller::debInstallerTempPath()
-{
-    return m_tempDir;
-}
 
-QString DebInstaller::createTempDir() {
+
+/*QString DebInstaller::createTempDir() {
     QProcess process;
     process.start("mktemp", QStringList() << "--suffix=-gxde-deb-installer" << "-d");
     process.waitForStarted();
@@ -282,7 +275,7 @@ QString DebInstaller::createTempDir() {
         return "/tmp";
     }
     return path;
-}
+}*/
 
 void DebInstaller::showUninstallConfirmPage()
 {

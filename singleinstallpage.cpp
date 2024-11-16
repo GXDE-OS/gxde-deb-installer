@@ -373,7 +373,7 @@ void SingleInstallPage::setPackageInfo()
     m_packageVersion->setText(package->version());
     m_packageArch->setText(package->architecture());
     switch (packageStatus) {
-    case PackagesManager::TurnPackage::Loongarch64ToLoong64:
+    case TurnPackageArchitecture::TurnPackage::Loongarch64ToLoong64:
         m_packageArch->setText(m_packageArch->text() + "(Loongarch64->loong64)");
         break;
     default:

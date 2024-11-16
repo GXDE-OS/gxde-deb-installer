@@ -23,6 +23,7 @@
 #define PACKAGESMANAGER_H
 
 #include "result.h"
+#include "turnpackagearchitecture.h"
 
 #include <memory>
 
@@ -67,11 +68,6 @@ class PackagesManager : public QObject
     friend class DebListModel;
 
 public:
-    enum TurnPackage {
-        Loongarch64ToLoong64,
-        None
-    };
-
     explicit PackagesManager(QObject *parent = 0);
 
     bool isBackendReady();
@@ -91,7 +87,8 @@ public:
     void reset();
     void resetPackageDependsStatus(const int index);
     void removePackage(const int index);
-    void appendPackage(std::shared_ptr<QApt::DebFile> debPackage, TurnPackage turnPackage = TurnPackage::None);
+    void appendPackage(std::shared_ptr<QApt::DebFile> debPackage,
+                       TurnPackageArchitecture::TurnPackage turnPackage = TurnPackageArchitecture::TurnPackage::None);
 
     std::shared_ptr<QApt::DebFile> const package(const int index) const { return m_preparedPackages[index]; }
     QSharedPointer<QApt::Backend> const backend() const { return m_backendFuture.result(); }
@@ -107,7 +104,7 @@ private:
 private:
 
     QList<std::shared_ptr<QApt::DebFile>> m_preparedPackages;
-    QList<TurnPackage> m_preparedPackagesTurnStatus;
+    QList<TurnPackageArchitecture::TurnPackage> m_preparedPackagesTurnStatus;
     QHash<int, int> m_packageInstallStatus;
     QHash<int, PackageDependsStatus> m_packageDependsStatus;
     QSet<QByteArray> m_appendedPackagesMd5;

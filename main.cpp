@@ -72,18 +72,11 @@ int main(int argc, char *argv[])
     qDebug() << file_list;
 
     DebInstaller w;
-    QString tempDirPath = w.debInstallerTempPath();
-    qDebug() << "Temp Dir:" << tempDirPath;
     w.show();
 
     // select files from args
     if (!file_list.isEmpty())
         QMetaObject::invokeMethod(&w, "onPackagesSelected", Qt::QueuedConnection, Q_ARG(QStringList, file_list));
-    int exec = app.exec();
-    // 删除临时文件
 
-    QDir tempDir(tempDirPath);
-    tempDir.removeRecursively();
-
-    return exec;
+    return app.exec();
 }

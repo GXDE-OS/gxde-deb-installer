@@ -28,6 +28,8 @@
 
 #include <DMainWindow>
 
+#include "turnpackagearchitecture.h"
+
 class FileChooseWidget;
 class DebListModel;
 class SingleInstallPage;
@@ -61,11 +63,8 @@ private slots:
 private:
     void refreshInstallPage();
     SingleInstallPage *backToSinglePage();
-    QString turnLoongarchABI1ToABI2(QString debPath);
 
 private:
-    QString createTempDir();
-    void unpackLoongarchToLoong64Shell();
     QString m_tempDir = "/tmp";
 
     DebListModel *m_fileListModel;
@@ -77,6 +76,8 @@ private:
     QAction *m_darkThemeAction;
 
     QPointer<QWidget> m_lastPage;
+    TurnPackageArchitecture m_debTurner;
+
 };
 
 #endif // DEBINSTALLER_H

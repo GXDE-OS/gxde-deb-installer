@@ -78,7 +78,7 @@ bool DebListModel::isReady() const
     return m_packagesManager->isBackendReady();
 }
 
-const QList<PackagesManager::TurnPackage> DebListModel::preparedPackagesTurnStatus() const
+const QList<TurnPackageArchitecture::TurnPackage> DebListModel::preparedPackagesTurnStatus() const
 {
     return m_packagesManager->m_preparedPackagesTurnStatus;
 }
@@ -201,7 +201,7 @@ void DebListModel::removePackage(const int idx)
 }
 
 void DebListModel::appendPackage(std::shared_ptr<QApt::DebFile> package,
-                                 PackagesManager::TurnPackage turnStatus)
+                                 TurnPackageArchitecture::TurnPackage turnStatus)
 {
     Q_ASSERT_X(m_workerStatus == WorkerPrepare, Q_FUNC_INFO, "installer status error");
 

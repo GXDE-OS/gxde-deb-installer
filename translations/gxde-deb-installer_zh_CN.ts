@@ -4,12 +4,12 @@
 <context>
     <name>DebInstaller</name>
     <message>
-        <location filename="../debinstaller.cpp" line="65"/>
+        <location filename="../debinstaller.cpp" line="66"/>
         <source>Dark theme</source>
         <translation>深色主题</translation>
     </message>
     <message>
-        <location filename="../debinstaller.cpp" line="91"/>
+        <location filename="../debinstaller.cpp" line="94"/>
         <source>GXDE Package Manager</source>
         <translation>GXDE 软件包管理器</translation>
     </message>
@@ -18,7 +18,7 @@
         <translation type="vanished">深度软件包管理器</translation>
     </message>
     <message>
-        <location filename="../debinstaller.cpp" line="296"/>
+        <location filename="../debinstaller.cpp" line="363"/>
         <source>Bulk Install</source>
         <translation>批量安装</translation>
     </message>
@@ -46,13 +46,13 @@
         <translation>安装失败</translation>
     </message>
     <message>
-        <location filename="../deblistmodel.cpp" line="296"/>
-        <location filename="../deblistmodel.cpp" line="303"/>
+        <location filename="../deblistmodel.cpp" line="302"/>
+        <location filename="../deblistmodel.cpp" line="309"/>
         <source>Broken Dependencies: %1</source>
         <translation>依赖关系不满足：%1</translation>
     </message>
     <message>
-        <location filename="../deblistmodel.cpp" line="299"/>
+        <location filename="../deblistmodel.cpp" line="305"/>
         <source>Unmatched package architecture</source>
         <translation>软件包架构不匹配</translation>
     </message>
@@ -129,82 +129,87 @@
 <context>
     <name>SingleInstallPage</name>
     <message>
-        <location filename="../singleinstallpage.cpp" line="109"/>
+        <location filename="../singleinstallpage.cpp" line="110"/>
         <source>Collapse</source>
         <translation>收起</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="109"/>
+        <location filename="../singleinstallpage.cpp" line="110"/>
         <source>Display details</source>
         <translation>显示详细信息</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="141"/>
+        <location filename="../singleinstallpage.cpp" line="144"/>
         <source>Install</source>
         <translation>安装</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="143"/>
+        <location filename="../singleinstallpage.cpp" line="146"/>
         <source>Remove</source>
         <translation>卸载</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="145"/>
+        <location filename="../singleinstallpage.cpp" line="148"/>
         <source>Reinstall</source>
         <translation>重新安装</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="147"/>
+        <location filename="../singleinstallpage.cpp" line="150"/>
         <source>OK</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="149"/>
+        <location filename="../singleinstallpage.cpp" line="152"/>
         <source>Back</source>
         <translation>返回</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="151"/>
+        <location filename="../singleinstallpage.cpp" line="154"/>
         <source>Done</source>
         <translation>完成</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="164"/>
+        <location filename="../singleinstallpage.cpp" line="167"/>
         <source>Version: </source>
         <translation>版本: </translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="320"/>
+        <location filename="../singleinstallpage.cpp" line="172"/>
+        <source>Architecture: </source>
+        <translation>架构： </translation>
+    </message>
+    <message>
+        <location filename="../singleinstallpage.cpp" line="330"/>
         <source>Installed successfully</source>
         <translation>安装成功</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="322"/>
+        <location filename="../singleinstallpage.cpp" line="332"/>
         <source>Uninstalled successfully</source>
         <translation>卸载成功</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="392"/>
+        <location filename="../singleinstallpage.cpp" line="412"/>
         <source>Older version installed</source>
         <translation>已安装较旧的版本</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="393"/>
+        <location filename="../singleinstallpage.cpp" line="413"/>
         <source>Upgrade</source>
         <translation>升级</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="397"/>
+        <location filename="../singleinstallpage.cpp" line="417"/>
         <source>Newer version installed</source>
         <translation>已安装较新的版本</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="398"/>
+        <location filename="../singleinstallpage.cpp" line="418"/>
         <source>Downgrade</source>
         <translation>降级</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="402"/>
+        <location filename="../singleinstallpage.cpp" line="422"/>
         <source>Unknown installation status</source>
         <translation>安装状态未知</translation>
     </message>
@@ -213,17 +218,17 @@
         <translation type="vanished">已安装其他版本：%1</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="333"/>
+        <location filename="../singleinstallpage.cpp" line="343"/>
         <source>Uninstall Failed</source>
         <translation>卸载失败</translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="159"/>
+        <location filename="../singleinstallpage.cpp" line="162"/>
         <source>Name: </source>
         <translation>名称: </translation>
     </message>
     <message>
-        <location filename="../singleinstallpage.cpp" line="388"/>
+        <location filename="../singleinstallpage.cpp" line="408"/>
         <source>Same version installed</source>
         <translation>已安装相同版本</translation>
     </message>
@@ -269,12 +274,12 @@ All dependencies will also be removed</source>
         <translation type="vanished">深度软件包管理器用于帮助用户安装和卸载本地软件包，支持批量安装。</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="52"/>
+        <location filename="../main.cpp" line="54"/>
         <source>GXDE Package Manager</source>
         <translation>GXDE 软件包管理器</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="53"/>
+        <location filename="../main.cpp" line="55"/>
         <source>GXDE Package Manager is used to help users install and remove local packages, supporting bulk install.</source>
         <translation>GXDE 软件包管理器用于帮助用户安装和卸载本地软件包，支持批量安装。</translation>
     </message>

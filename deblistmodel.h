@@ -94,7 +94,7 @@ public:
     bool isReady() const;
     bool isWorkerPrepare() const { return m_workerStatus == WorkerPrepare; }
     const QList<std::shared_ptr<QApt::DebFile>> preparedPackages() const;
-    const QList<PackagesManager::TurnPackage> preparedPackagesTurnStatus() const;
+    const QList<TurnPackageArchitecture::TurnPackage> preparedPackagesTurnStatus() const;
     QModelIndex first() const;
 
     int rowCount(const QModelIndex &parent) const override;
@@ -116,7 +116,7 @@ public slots:
     void uninstallPackage(const int idx);
     void removePackage(const int idx);
     void appendPackage(std::shared_ptr<QApt::DebFile> package,
-                       PackagesManager::TurnPackage turnStatus = PackagesManager::TurnPackage::None);
+                       TurnPackageArchitecture::TurnPackage turnStatus = TurnPackageArchitecture::TurnPackage::None);
     void onTransactionErrorOccurred();
     void onTransactionStatusChanged(QApt::TransactionStatus stat);
 

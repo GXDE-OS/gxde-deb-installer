@@ -559,7 +559,7 @@ void PackagesManager::removePackage(const int index)
 }
 
 void PackagesManager::appendPackage(std::shared_ptr<QApt::DebFile> debPackage,
-                                    TurnPackage turnPackage)
+                                    TurnPackageArchitecture::TurnPackage turnPackage)
 {
     const auto md5 = debPackage->md5Sum();
     if (m_appendedPackagesMd5.contains(md5))
