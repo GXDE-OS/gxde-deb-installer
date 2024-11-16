@@ -101,6 +101,7 @@ SingleInstallPage::SingleInstallPage(DebListModel *model, QWidget *parent)
       m_packageIcon(new QLabel(this)),
       m_packageName(new QLabel(this)),
       m_packageVersion(new QLabel(this)),
+      m_packageArch(new QLabel(this)),
       m_packageDescription(new QLabel(this)),
       m_tipsLabel(new QLabel(this)),
       m_progress(new WorkerProgress(this)),
@@ -116,6 +117,7 @@ SingleInstallPage::SingleInstallPage(DebListModel *model, QWidget *parent)
 {
     m_packageName->setObjectName("PackageName");
     m_packageVersion->setObjectName("PackageVersion");
+    m_packageArch->setObjectName("PackageArch");
     m_infoControlButton->setObjectName("InfoControlButton");
     m_workerInfomation->setObjectName("WorkerInformation");
     m_packageDescription->setObjectName("PackageDescription");
@@ -124,6 +126,7 @@ SingleInstallPage::SingleInstallPage(DebListModel *model, QWidget *parent)
     m_packageIcon->setFixedSize(64, 64);
     m_packageName->setAlignment(Qt::AlignBottom | Qt::AlignLeft);
     m_packageVersion->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+    m_packageArch->setAlignment(Qt::AlignTop | Qt::AlignLeft);
     m_tipsLabel->setAlignment(Qt::AlignCenter);
     m_tipsLabel->setStyleSheet("QLabel {"
                                "color: #ff5a5a;"
@@ -165,11 +168,18 @@ SingleInstallPage::SingleInstallPage(DebListModel *model, QWidget *parent)
     packageVersion->setAlignment(Qt::AlignTop | Qt::AlignLeft);
     packageVersion->setObjectName("PackageVersionTitle");
 
+    QLabel *packageArch = new QLabel;
+    packageArch->setText(tr("Architecture: "));
+    packageArch->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+    packageArch->setObjectName("PackageArchTitle");
+
     QGridLayout *itemInfoLayout = new QGridLayout;
     itemInfoLayout->addWidget(packageName, 0, 0);
     itemInfoLayout->addWidget(m_packageName, 0, 1);
     itemInfoLayout->addWidget(packageVersion, 1, 0);
     itemInfoLayout->addWidget(m_packageVersion, 1, 1);
+    itemInfoLayout->addWidget(packageArch, 2, 0);
+    itemInfoLayout->addWidget(m_packageArch, 2, 1);
     itemInfoLayout->setSpacing(0);
     itemInfoLayout->setVerticalSpacing(10);
     itemInfoLayout->setMargin(0);
@@ -352,6 +362,7 @@ void SingleInstallPage::setPackageInfo()
     qApp->processEvents();
 
     auto package = m_packagesModel->preparedPackages().first();
+    auto packageStatus = m_packagesModel->preparedPackagesTurnStatus().first();
 
     const QIcon icon = QIcon::fromTheme("application-vnd.debian.binary-package", QIcon::fromTheme("debian-swirl"));
     const QPixmap iconPix = icon.pixmap(m_packageIcon->size());
@@ -360,6 +371,14 @@ void SingleInstallPage::setPackageInfo()
     m_packageIcon->setPixmap(iconPix);
     m_packageName->setText(package->packageName());
     m_packageVersion->setText(package->version());
+    m_packageArch->setText(package->architecture());
+    switch (packageStatus) {
+    case PackagesManager::TurnPackage::Loongarch64ToLoong64:
+        m_packageArch->setText(m_packageArch->text() + "(Loongarch64->loong64)");
+        break;
+    default:
+        break;
+    }
 
     // set package description
     // const QRegularExpression multiLine("\n+", QRegularExpression::MultilineOption);

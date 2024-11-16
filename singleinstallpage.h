@@ -78,6 +78,7 @@ private:
     QLabel *m_packageIcon;
     QLabel *m_packageName;
     QLabel *m_packageVersion;
+    QLabel *m_packageArch;
     QLabel *m_packageDescription;
     QLabel *m_tipsLabel;
     QProgressBar *m_progress;

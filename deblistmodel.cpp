@@ -78,6 +78,11 @@ bool DebListModel::isReady() const
     return m_packagesManager->isBackendReady();
 }
 
+const QList<PackagesManager::TurnPackage> DebListModel::preparedPackagesTurnStatus() const
+{
+    return m_packagesManager->m_preparedPackagesTurnStatus;
+}
+
 const QList<std::shared_ptr<QApt::DebFile>> DebListModel::preparedPackages() const
 {
     return m_packagesManager->m_preparedPackages;
@@ -195,11 +200,12 @@ void DebListModel::removePackage(const int idx)
     m_packagesManager->removePackage(idx);
 }
 
-void DebListModel::appendPackage(std::shared_ptr<QApt::DebFile> package)
+void DebListModel::appendPackage(std::shared_ptr<QApt::DebFile> package,
+                                 PackagesManager::TurnPackage turnStatus)
 {
     Q_ASSERT_X(m_workerStatus == WorkerPrepare, Q_FUNC_INFO, "installer status error");
 
-    m_packagesManager->appendPackage(package);
+    m_packagesManager->appendPackage(package, turnStatus);
 }
 
 void DebListModel::onTransactionErrorOccurred()

@@ -46,6 +46,14 @@ GrayButton:pressed {
     color: #797979;
 }
 
+#SingleInstallPage #PackageArch {
+    color: #929292;
+}
+
+#SingleInstallPage #PackageArchTitle {
+    color: #797979;
+}
+
 #SingleInstallPage #PackageVersion {
     color: #929292;
 }

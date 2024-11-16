@@ -553,11 +553,13 @@ void PackagesManager::removePackage(const int index)
 
     m_appendedPackagesMd5.remove(md5);
     m_preparedPackages.removeAt(index);
+    m_preparedPackagesTurnStatus.removeAt(index);
     m_packageInstallStatus.clear();
     m_packageDependsStatus.clear();
 }
 
-void PackagesManager::appendPackage(std::shared_ptr<QApt::DebFile> debPackage)
+void PackagesManager::appendPackage(std::shared_ptr<QApt::DebFile> debPackage,
+                                    TurnPackage turnPackage)
 {
     const auto md5 = debPackage->md5Sum();
     if (m_appendedPackagesMd5.contains(md5))
@@ -565,6 +567,7 @@ void PackagesManager::appendPackage(std::shared_ptr<QApt::DebFile> debPackage)
 
     m_preparedPackages << debPackage;
     m_appendedPackagesMd5 << md5;
+    m_preparedPackagesTurnStatus << turnPackage;
 }
 
 const PackageDependsStatus PackagesManager::checkDependsPackageStatus(QSet<QString> &choosed_set, const QString &architecture, const QList<DependencyItem> &depends)

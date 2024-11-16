@@ -27,6 +27,8 @@
 #include <QDebug>
 #include <QTimer>
 #include <DLog>
+#include <QDir>
+#include <QDirIterator>
 
 DWIDGET_USE_NAMESPACE
 #ifdef DUTIL_USE_NAMESPACE
@@ -70,11 +72,18 @@ int main(int argc, char *argv[])
     qDebug() << file_list;
 
     DebInstaller w;
+    QString tempDirPath = w.debInstallerTempPath();
+    qDebug() << "Temp Dir:" << tempDirPath;
     w.show();
 
     // select files from args
     if (!file_list.isEmpty())
         QMetaObject::invokeMethod(&w, "onPackagesSelected", Qt::QueuedConnection, Q_ARG(QStringList, file_list));
+    int exec = app.exec();
+    // 删除临时文件
 
-    return app.exec();
+    QDir tempDir(tempDirPath);
+    tempDir.removeRecursively();
+
+    return exec;
 }

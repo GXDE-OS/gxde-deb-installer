@@ -32,6 +32,8 @@
 #include <QApt/Backend>
 #include <QApt/Transaction>
 
+#include "packagesmanager.h"
+
 class PackagesManager;
 class DebListModel : public QAbstractListModel
 {
@@ -92,6 +94,7 @@ public:
     bool isReady() const;
     bool isWorkerPrepare() const { return m_workerStatus == WorkerPrepare; }
     const QList<std::shared_ptr<QApt::DebFile>> preparedPackages() const;
+    const QList<PackagesManager::TurnPackage> preparedPackagesTurnStatus() const;
     QModelIndex first() const;
 
     int rowCount(const QModelIndex &parent) const override;
@@ -112,7 +115,8 @@ public slots:
     void installAll();
     void uninstallPackage(const int idx);
     void removePackage(const int idx);
-    void appendPackage(std::shared_ptr<QApt::DebFile> package);
+    void appendPackage(std::shared_ptr<QApt::DebFile> package,
+                       PackagesManager::TurnPackage turnStatus = PackagesManager::TurnPackage::None);
     void onTransactionErrorOccurred();
     void onTransactionStatusChanged(QApt::TransactionStatus stat);
 

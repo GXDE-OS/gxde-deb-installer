@@ -37,6 +37,7 @@ class DebInstaller : public Dtk::Widget::DMainWindow
 
 public:
     DebInstaller(QWidget *parent = nullptr);
+    QString debInstallerTempPath();
     virtual ~DebInstaller();
 
 protected:
@@ -60,8 +61,13 @@ private slots:
 private:
     void refreshInstallPage();
     SingleInstallPage *backToSinglePage();
+    QString turnLoongarchABI1ToABI2(QString debPath);
 
 private:
+    QString createTempDir();
+    void unpackLoongarchToLoong64Shell();
+    QString m_tempDir = "/tmp";
+
     DebListModel *m_fileListModel;
     FileChooseWidget *m_fileChooseWidget;
 
