@@ -7,10 +7,9 @@ _display_usage() {
 	printf "\
 Usage:
 
-	$0 [PACKAGE] [ToPath] ...
+	loong64-it [PACKAGE1] [PACKAGE2] ...
 
-        - PACKAGE: Path to the old-world .deb package to convert.
-        - ToPath: Where to save converted deb
+        - PACKAGE{1..N}: Path to the old-world .deb package to convert.
 
 "
 }
@@ -62,19 +61,17 @@ _convert_loong64() {
 		aberr "Failed to unpack metadata archive from $1: $?."
 
 	abinfo "Converting dpkg Architecture key: $1 ..."
-	#if ! egrep '^Architecture: loongarch64$' "$DEBDIR"/metadata/control; then
-	#	aberr "Failed to detect a \"loongarch64\" architecture signature in control file - this is not a valid old-world LoongArch package!"
-	#fi
+	if ! egrep '^Architecture: loongarch64$' "$DEBDIR"/metadata/control; then
+		aberr "Failed to detect a \"loongarch64\" architecture signature in control file - this is not a valid old-world LoongArch package!"
+	fi
 	sed -e 's|^Architecture: loongarch64$|Architecture: loong64|g' \
 	    -i "$DEBDIR"/metadata/control
-	if egrep '^Architecture: loong64$' "$DEBDIR"/metadata/control; then
-		if grep -q "Depends:" "$DEBDIR"/metadata/control; then
-	    	sed -i '/Depends:/ s/$/liblol, liblol-dkms,/' "$DEBDIR"/metadata/control
+
+        if grep -q "Depends:" "$DEBDIR"/metadata/control; then
+	    	sed -i '/Depends:/ s/$/, liblol,liblol-dkms/' "$DEBDIR"/metadata/control
         else
-   		echo "Depends: liblol" >> "$DEBDIR"/metadata/control
+   		echo "Depends: liblol,liblol-dkms" >> "$DEBDIR"/metadata/control
         fi
-	fi
-        
 
 
 	abinfo "Building metadata archive (control.tar.${CONTROL_EXT}): $1 ..."
@@ -83,14 +80,26 @@ _convert_loong64() {
 		aberr "Failed to build metadata archive (control.tar.${CONTROL_EXT}) for $1: $?."
 	cd "$DEBDIR"
 
-	abinfo "Rebuilding dpkg package $2"
-	cp $1 $2 -rv
-	ar rv "$2" control.tar.${CONTROL_EXT} || \
+	abinfo "Rebuilding dpkg package $1: loong64 ..."
+	ar rv "$PKG_PATH" control.tar.${CONTROL_EXT} || \
 		aberr "Failed to rebuild dpkg package $1: $?."
 
-    abinfo "Cleaning up: $DEBDIR ..."
-    rm -r "$DEBDIR"
-#mv $1 ${BASEDIR}/${PKG_NAME}_${VERSION}_loong64.deb
+        #abinfo "Cleaning up: $1 ..."
+        #rm -r "$DEBDIR"
+mv $PKG_PATH ${BASEDIR}/${PKG_NAME}_${VERSION}_loong64.deb
+	abinfo """Your requested package:
+
+    $1
+    
+Has been successfully converted as a loong64 package and renamed as ${PKG_NAME}_${VERSION}_loong64.deb
+
+However, you may still need to install libLoL for old-world applications to
+work properly. Please refer to the libLoL home page:
+
+    https://liblol.aosc.io
+
+For details on how to install and configure libLoL.
+"""
 }
 
 # Display usage info if `-h' or `--help' is specified.
@@ -102,7 +111,7 @@ fi
 # Display usage info with directions if no option is specified.
 if [ -z "$1" ]; then
 	abwarn "Please specify package(s) to convert.\n"
-	_display_usage $0
+	_display_usage
 	exit 1
 fi
 
@@ -110,10 +119,6 @@ fi
 SRCDIR="$(pwd)"
 
 # Rebuilding all requested packages.
-#for i in "$@"; do
-if [[ $2 != "" ]]; then
-	_convert_loong64 $1 $2
-else
-	_convert_loong64 $1 $1
-fi
-#done
+for i in "$@"; do
+	_convert_loong64 $i
+done
