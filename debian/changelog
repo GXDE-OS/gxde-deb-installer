@@ -1,4 +1,4 @@
-gxde-deb-installer (1.5.0) UNRELEASED; urgency=medium
+gxde-deb-installer (1.5.1) UNRELEASED; urgency=medium
 
   
   *  Fix some pointer issues.
@@ -6,9 +6,9 @@ gxde-deb-installer (1.5.0) UNRELEASED; urgency=medium
   *  Added a information for downgrade and upgrade.
   *  Add Translation
   *  修复: deb安装器无法展示部分应用的简介
-  * 支持龙芯旧世界包自动转为新世界
+  *  支持龙芯旧世界包自动转为新世界
 
- -- gfdgd_xi <3025613752@qq.com>  Sat, 16 Nov 2024 22:33:15 +0800
+ -- gfdgd_xi <3025613752@qq.com>  Sun, 17 Nov 2024 08:55:33 +0800
 
 gxde-deb-installer (1.0.0-1) unstable; urgency=medium
 
