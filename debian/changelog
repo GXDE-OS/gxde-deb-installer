@@ -1,4 +1,4 @@
-gxde-deb-installer (1.5.1-1) UNRELEASED; urgency=medium
+gxde-deb-installer (1.5.1-1.1) UNRELEASED; urgency=medium
 
   
   *  Fix some pointer issues.
