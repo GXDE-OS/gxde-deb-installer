@@ -68,7 +68,8 @@ _convert_loong64() {
 	sed -e 's|^Architecture: loongarch64$|Architecture: loong64|g' \
 	    -i "$DEBDIR"/metadata/control
         if grep -q "Depends:" "$DEBDIR"/metadata/control; then
-	    	sed -i '/Depends:/ s/$/, liblol,liblol-dkms/' "$DEBDIR"/metadata/control
+	    	sed -i 's/Depends:/Depends: liblol,liblol-dkms,/g' "$DEBDIR"/metadata/control
+	    	#sed -i '/Depends:/ s/$/, liblol,liblol-dkms/' "$DEBDIR"/metadata/control
         else
    		echo "Depends: liblol,liblol-dkms" >> "$DEBDIR"/metadata/control
         fi
