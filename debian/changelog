@@ -1,15 +1,9 @@
-gxde-deb-installer (1.5.2) UNRELEASED; urgency=medium
+gxde-deb-installer (1.5.3) UNRELEASED; urgency=medium
 
   
-  *  Fix some pointer issues.
-  *  Fix problems with deprecated packages.
-  *  Added a information for downgrade and upgrade.
-  *  Add Translation
-  *  修复: deb安装器无法展示部分应用的简介
-  *  支持龙芯旧世界包自动转为新世界--fix sm
-  * 支持全局背景
+  * 新增支持设置背景图片标签
 
- -- gfdgd_xi <3025613752@qq.com>  Tue, 28 Jan 2025 10:48:47 +0800
+ -- gfdgd_xi <3025613752@qq.com>  Tue, 04 Feb 2025 09:55:04 +0800
 
 gxde-deb-installer (1.0.0-1) unstable; urgency=medium
 

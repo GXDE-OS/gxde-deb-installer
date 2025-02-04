@@ -100,6 +100,8 @@ DebInstaller::DebInstaller(QWidget *parent)
     connect(m_darkThemeAction, &QAction::toggled, this, &DebInstaller::toggleDarkTheme);
 
     reloadTheme();
+
+    setEnableWindowBackground(1);
 }
 
 DebInstaller::~DebInstaller()
