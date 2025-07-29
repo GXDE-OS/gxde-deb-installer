@@ -11,5 +11,6 @@
         <file>theme/dark/dark.qss</file>
         <file>theme/light/light.qss</file>
         <file>loongarch-to-loong64.sh</file>
+        <file>amd64-to-all.sh</file>
     </qresource>
 </RCC>

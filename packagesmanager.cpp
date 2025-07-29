@@ -385,7 +385,7 @@ const QStringList PackagesManager::packageAvailableDepends(const int index)
 
     // TODO: check upgrade from conflicts
 
-    return choose_set.toList();
+    return choose_set.values();
 }
 
 void PackagesManager::packageCandidateChoose(QSet<QString> &choosed_set, const QString &debArch, const QList<DependencyItem> &dependsList)
@@ -523,7 +523,7 @@ const QStringList PackagesManager::packageReverseDependsList(const QString &pack
     // remove self
     ret.remove(packageName);
 
-    return ret.toList();
+    return ret.values();
 }
 
 void PackagesManager::reset()

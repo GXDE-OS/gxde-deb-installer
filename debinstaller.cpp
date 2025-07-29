@@ -210,7 +210,7 @@ void DebInstaller::onPackagesSelected(const QStringList &packages)
             continue;
         }
         DRecentData data;
-        data.appName = "Deepin Deb Installer";
+        data.appName = "GXDE Deb Installer";
         data.appExec = "deepin-deb-installer";
         TurnPackageArchitecture::TurnPackage turnStatus = TurnPackageArchitecture::TurnPackage::None;
         // 判断是否为 loong64 新世界且包架构代号不是 loongarch64
@@ -225,6 +225,18 @@ void DebInstaller::onPackagesSelected(const QStringList &packages)
             if (debPath != "") {
                 p = std::make_shared<DebFile>(debPath);
                 turnStatus = TurnPackageArchitecture::TurnPackage::Loongarch64ToLoong64;
+            }
+        }
+        // 判断是否为非 amd64/i386 且软件包为 amd64
+        if (p->architecture() == "amd64" &&
+            !backend->architectures().contains("amd64") &&
+            !backend->architectures().contains("i386")) {
+            // 尝试转包
+            QString debPath = m_debTurner.turnAmd64ToAll(p->filePath());
+            qDebug() << debPath;
+            if (debPath != "") {
+                p = std::make_shared<DebFile>(debPath);
+                turnStatus = TurnPackageArchitecture::TurnPackage::Amd64ToAll;
             }
         }
         DRecentManager::addItem(package, data);

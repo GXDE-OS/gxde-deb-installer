@@ -1,9 +1,9 @@
-gxde-deb-installer (1.5.3) UNRELEASED; urgency=medium
+gxde-deb-installer (1.6.0) UNRELEASED; urgency=medium
 
-  
   * 新增支持设置背景图片标签
+  * 支持转包（amd64->all），调用 box64 运行
 
- -- gfdgd_xi <3025613752@qq.com>  Tue, 04 Feb 2025 09:55:04 +0800
+ -- gfdgd_xi <3025613752@qq.com>  Tue, 29 Jul 2025 11:20:05 +0800
 
 gxde-deb-installer (1.0.0-1) unstable; urgency=medium
 

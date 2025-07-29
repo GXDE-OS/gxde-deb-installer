@@ -51,6 +51,17 @@ void TurnPackageArchitecture::unpackLoongarchToLoong64Shell()
     writeShell.close();
 }
 
+void TurnPackageArchitecture::unpackAmd64ToAllShell()
+{
+    QFile readShell(":/amd64-to-all.sh");
+    QFile writeShell(m_tempDir + "/amd64-to-all.sh");
+    readShell.open(QFile::ReadOnly);
+    writeShell.open(QFile::WriteOnly);
+    writeShell.write(readShell.readAll());
+    readShell.close();
+    writeShell.close();
+}
+
 QString TurnPackageArchitecture::turnLoongarchABI1ToABI2(QString debPath)
 {
     if (!QFile::exists(m_tempDir + "/loongarch-to-loong64.sh")) {
@@ -60,6 +71,26 @@ QString TurnPackageArchitecture::turnLoongarchABI1ToABI2(QString debPath)
     QProcess process;
     process.start("bash", QStringList() << m_tempDir + "/loongarch-to-loong64.sh"
                   << debPath << newPath);
+    process.waitForStarted();
+    process.waitForFinished(-1);
+    qDebug() << "Normal: " << process.readAllStandardOutput();
+    qDebug() << "Error: " << process.readAllStandardError();
+    if (QFile::exists(newPath)) {
+        return newPath;
+    }
+    return "";
+}
+
+
+QString TurnPackageArchitecture::turnAmd64ToAll(QString debPath)
+{
+    if (!QFile::exists(m_tempDir + "/amd64-to-all.sh")) {
+        unpackAmd64ToAllShell();
+    }
+    QString newPath = m_tempDir + "/" + QString::number(QDateTime::currentDateTime().toTime_t()) + ".deb";
+    QProcess process;
+    process.start("bash", QStringList() << m_tempDir + "/amd64-to-all.sh"
+                                        << debPath << newPath);
     process.waitForStarted();
     process.waitForFinished(-1);
     qDebug() << "Normal: " << process.readAllStandardOutput();

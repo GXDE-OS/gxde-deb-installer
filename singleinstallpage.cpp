@@ -374,7 +374,10 @@ void SingleInstallPage::setPackageInfo()
     m_packageArch->setText(package->architecture());
     switch (packageStatus) {
     case TurnPackageArchitecture::TurnPackage::Loongarch64ToLoong64:
-        m_packageArch->setText(m_packageArch->text() + "(Loongarch64->loong64)");
+        m_packageArch->setText(m_packageArch->text() + " (Loongarch64->loong64)");
+        break;
+    case TurnPackageArchitecture::TurnPackage::Amd64ToAll:
+        m_packageArch->setText(m_packageArch->text() + " (amd64->all, box64+binfmt)");
         break;
     default:
         break;
