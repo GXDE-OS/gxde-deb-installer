@@ -379,6 +379,9 @@ void SingleInstallPage::setPackageInfo()
     case TurnPackageArchitecture::TurnPackage::Amd64ToAll:
         m_packageArch->setText(m_packageArch->text() + " (amd64->all, box64+binfmt)");
         break;
+    case TurnPackageArchitecture::TurnPackage::Loongarch64ToMips64el:
+        m_packageArch->setText(m_packageArch->text() + " (loongarch64->mips64el,\nbox64+binfmt)");
+        break;
     default:
         break;
     }

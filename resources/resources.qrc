@@ -12,5 +12,6 @@
         <file>theme/light/light.qss</file>
         <file>loongarch-to-loong64.sh</file>
         <file>amd64-to-all.sh</file>
+        <file>loongarch64-to-mips64el.sh</file>
     </qresource>
 </RCC>

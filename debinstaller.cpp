@@ -239,6 +239,17 @@ void DebInstaller::onPackagesSelected(const QStringList &packages)
                 turnStatus = TurnPackageArchitecture::TurnPackage::Amd64ToAll;
             }
         }
+        // 判断是否为 mips64el 且软件包为 loongarch64
+        if (p->architecture() == "loongarch64" &&
+            backend->architectures().contains("mips64el")) {
+            // 尝试转包
+            QString debPath = m_debTurner.turnLoongarch64ToMips64el(p->filePath());
+            qDebug() << debPath;
+            if (debPath != "") {
+                p = std::make_shared<DebFile>(debPath);
+                turnStatus = TurnPackageArchitecture::TurnPackage::Loongarch64ToMips64el;
+            }
+        }
         DRecentManager::addItem(package, data);
         qDebug() << p->packageName();
         qDebug() << p->architecture();

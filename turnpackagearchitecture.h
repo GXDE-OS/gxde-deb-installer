@@ -13,6 +13,7 @@ public:
     enum TurnPackage {
         Loongarch64ToLoong64,
         Amd64ToAll,
+        Loongarch64ToMips64el,
         None
     };
 
@@ -20,8 +21,10 @@ public:
     ~TurnPackageArchitecture();
     void unpackLoongarchToLoong64Shell();
     void unpackAmd64ToAllShell();
+    void unpackLoongarch64ToMips64el();
     QString turnLoongarchABI1ToABI2(QString debPath);
     QString turnAmd64ToAll(QString debPath);
+    QString turnLoongarch64ToMips64el(QString debPath);
     QString createTempDir();
     QString debInstallerTempPath();
 
