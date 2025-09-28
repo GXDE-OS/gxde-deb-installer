@@ -227,6 +227,8 @@ void DebInstaller::onPackagesSelected(const QStringList &packages)
                 turnStatus = TurnPackageArchitecture::TurnPackage::Loongarch64ToLoong64;
             }
         }
+        // 因部分原因，暂时移除该部分
+        /*
         // 判断是否为非 amd64/i386 且软件包为 amd64
         if (p->architecture() == "amd64" &&
             !backend->architectures().contains("amd64") &&
@@ -249,7 +251,7 @@ void DebInstaller::onPackagesSelected(const QStringList &packages)
                 p = std::make_shared<DebFile>(debPath);
                 turnStatus = TurnPackageArchitecture::TurnPackage::Loongarch64ToMips64el;
             }
-        }
+        }*/
         DRecentManager::addItem(package, data);
         qDebug() << p->packageName();
         qDebug() << p->architecture();
