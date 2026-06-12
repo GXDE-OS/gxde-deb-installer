@@ -64,7 +64,7 @@ UninstallConfirmPage::UninstallConfirmPage(QWidget *parent)
     btnsLayout->addWidget(m_confirmBtn);
     btnsLayout->addStretch();
     btnsLayout->setSpacing(30);
-    btnsLayout->setMargin(0);
+    btnsLayout->setContentsMargins(0, 0, 0, 0);
 
     QVBoxLayout *centerWrapperLayout = new QVBoxLayout;
     centerWrapperLayout->addStretch();
@@ -74,7 +74,7 @@ UninstallConfirmPage::UninstallConfirmPage(QWidget *parent)
     centerWrapperLayout->addWidget(m_tips);
     centerWrapperLayout->addStretch();
     centerWrapperLayout->setSpacing(0);
-    centerWrapperLayout->setMargin(0);
+    centerWrapperLayout->setContentsMargins(0, 0, 0, 0);
 
     m_infoWrapperWidget->setLayout(centerWrapperLayout);
 

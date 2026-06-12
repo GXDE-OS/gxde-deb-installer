@@ -2,13 +2,13 @@ Source: gxde-deb-installer
 Section: utils
 Priority: optional
 Maintainer: gfdgd_xi <3025613752@qq.com>
-Build-Depends: debhelper (>= 9), cmake, pkg-config, libqt5widgets5, libqt5concurrent5, libqapt-dev, libdtkwidget2-dev, qttools5-dev-tools, qtbase5-dev
+Build-Depends: debhelper (>= 9), cmake, pkg-config, libqt6widgets6, libqt6concurrent6, libqapt-qt6-dev, libdtk2widget6-dev, qt6-tools-dev-tools, qt6-base-dev
 Standards-Version: 3.9.8
 Homepage: https://www.deepin.com/
 
 Package: gxde-deb-installer
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, libqapt3-runtime
+Depends: ${shlibs:Depends}, ${misc:Depends}, libqapt3-qt6-runtime
 Replaces: deepin-deb-installer
 Provides: deepin-deb-installer
 Description: GXDE deb installer tool

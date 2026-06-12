@@ -491,7 +491,7 @@ const QStringList PackagesManager::packageReverseDependsList(const QString &pack
     QSet<QString> ret { packageName };
     QQueue<QString> testQueue;
 
-    for (const auto &item : p->requiredByList().toSet())
+    for (const auto &item : QSet<QString>(p->requiredByList().begin(), p->requiredByList().end()))
         testQueue.append(item);
 
     while (!testQueue.isEmpty())

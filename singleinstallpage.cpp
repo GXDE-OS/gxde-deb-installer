@@ -182,7 +182,7 @@ SingleInstallPage::SingleInstallPage(DebListModel *model, QWidget *parent)
     itemInfoLayout->addWidget(m_packageArch, 2, 1);
     itemInfoLayout->setSpacing(0);
     itemInfoLayout->setVerticalSpacing(10);
-    itemInfoLayout->setMargin(0);
+    itemInfoLayout->setContentsMargins(0, 0, 0, 0);
 
     QHBoxLayout *itemBlockLayout = new QHBoxLayout;
     itemBlockLayout->addStretch();
@@ -210,7 +210,7 @@ SingleInstallPage::SingleInstallPage(DebListModel *model, QWidget *parent)
     itemLayout->addSpacing(20);
     itemLayout->addWidget(m_packageDescription);
     itemLayout->addStretch();
-    itemLayout->setMargin(0);
+    itemLayout->setContentsMargins(0, 0, 0, 0);
     itemLayout->setSpacing(0);
 
     m_itemInfoWidget->setLayout(itemLayout);

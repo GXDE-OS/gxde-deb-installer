@@ -33,19 +33,19 @@ file(GLOB SRCS "*.h" "*.cpp" "widgets/*.h" "widgets/*.cpp")
 
 # Find the library
 find_package(PkgConfig REQUIRED)
-find_package(Qt5Widgets REQUIRED)
-find_package(Qt5Concurrent REQUIRED)
-find_package(QApt REQUIRED)
-find_package(DtkWidget REQUIRED)
+find_package(Qt6 REQUIRED COMPONENTS Widgets Concurrent)
+pkg_check_modules(QApt REQUIRED IMPORTED_TARGET libqapt-qt6)
+find_package(Dtk2widget REQUIRED)
 
 # Tell CMake to create the executable
 add_executable(gxde-deb-installer ${SRCS} resources/resources.qrc)
-target_include_directories(gxde-deb-installer PUBLIC ${DtkWidget_INCLUDE_DIRS} ${OBJECT_BINARY_DIR})
+target_include_directories(gxde-deb-installer PUBLIC ${Dtk2widget_INCLUDE_DIRS} ${Dtk6Core_INCLUDE_DIRS} ${OBJECT_BINARY_DIR})
 target_link_libraries(gxde-deb-installer
-    QApt
-    ${DtkWidget_LIBRARIES}
-    ${Qt5Widgets_LIBRARIES}
-    ${Qt5Concurrent_LIBRARIES}
+    PkgConfig::QApt
+    Dtk6::Core
+    ${Dtk2widget_LIBRARIES}
+    Qt6::Widgets
+    Qt6::Concurrent
 )
 
 # Install settings

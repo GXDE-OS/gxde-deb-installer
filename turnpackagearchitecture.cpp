@@ -78,7 +78,7 @@ QString TurnPackageArchitecture::turnLoongarchABI1ToABI2(QString debPath)
     if (!QFile::exists(m_tempDir + "/loongarch-to-loong64.sh")) {
         unpackLoongarchToLoong64Shell();
     }
-    QString newPath = m_tempDir + "/" + QString::number(QDateTime::currentDateTime().toTime_t()) + ".deb";
+    QString newPath = m_tempDir + "/" + QString::number(QDateTime::currentDateTime().toSecsSinceEpoch()) + ".deb";
     QProcess process;
     process.start("bash", QStringList() << m_tempDir + "/loongarch-to-loong64.sh"
                   << debPath << newPath);
@@ -98,7 +98,7 @@ QString TurnPackageArchitecture::turnAmd64ToAll(QString debPath)
     if (!QFile::exists(m_tempDir + "/amd64-to-all.sh")) {
         unpackAmd64ToAllShell();
     }
-    QString newPath = m_tempDir + "/" + QString::number(QDateTime::currentDateTime().toTime_t()) + ".deb";
+    QString newPath = m_tempDir + "/" + QString::number(QDateTime::currentDateTime().toSecsSinceEpoch()) + ".deb";
     QProcess process;
     process.start("bash", QStringList() << m_tempDir + "/amd64-to-all.sh"
                                         << debPath << newPath);
@@ -117,7 +117,7 @@ QString TurnPackageArchitecture::turnLoongarch64ToMips64el(QString debPath)
     if (!QFile::exists(m_tempDir + "/loongarch64-to-mips64el.sh")) {
         unpackLoongarch64ToMips64el();
     }
-    QString newPath = m_tempDir + "/" + QString::number(QDateTime::currentDateTime().toTime_t()) + ".deb";
+    QString newPath = m_tempDir + "/" + QString::number(QDateTime::currentDateTime().toSecsSinceEpoch()) + ".deb";
     QProcess process;
     process.start("bash", QStringList() << m_tempDir + "/loongarch64-to-mips64el.sh"
                                         << debPath << newPath);
