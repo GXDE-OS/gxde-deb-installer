@@ -1,12 +1,13 @@
-gxde-deb-installer (2.0.0) UNRELEASED; urgency=medium
+gxde-deb-installer (2.0.1) UNRELEASED; urgency=medium
 
   * 新增支持设置背景图片标签
   * 支持转包（amd64->all），调用 box64 运行
   * 支持转包（loongarch64->mips64el），调用 ltax-loongarch 运行
   * 暂时移除部分架构转包功能
   * Qt6 迁移
+  * 修复中文缺失问题
 
- -- gfdgd_xi <3025613752@qq.com>  Fri, 12 Jun 2026 19:03:50 +0800
+ -- gfdgd_xi <3025613752@qq.com>  Fri, 19 Jun 2026 21:14:27 +0800
 
 gxde-deb-installer (1.0.0-1) unstable; urgency=medium
 
