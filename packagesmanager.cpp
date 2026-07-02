@@ -29,6 +29,7 @@
 #include <qapt/globals.h>
 #include <qapt/package.h>
 #include <qobject.h>
+#include <tuple>
 
 using namespace QApt;
 
@@ -117,10 +118,15 @@ PackagesManager::PackagesManager(QObject *parent)
     m_backendFuture = QtConcurrent::run(init_backend);
 }
 
-bool PackagesManager::isBackendReady()
+QStringList PackagesManager::architectures() const
+{
+    return m_backendFuture.result()->architectures();
+}
+
+/*bool PackagesManager::isBackendReady()
 {
     return m_backendFuture.isFinished();
-}
+}*/
 
 bool PackagesManager::isArchError(const int idx)
 {
@@ -805,10 +811,12 @@ std::pair<QApt::Package *, bool> PackagesManager::packageWithArch(const QString 
     // Now we can safely omit the version requirement.
     // As this is a fine replacement for the deprecated package. 
     // Setting the second param to true to indicate this
-    for (auto *ap : b->availablePackages())
-        if (ap->name() != packageName && ap->providesList().contains(packageName)) 
-            return {std::get<0>(packageWithArch(ap->name(), sysArch, annotation)), true};
-
+    for (auto *ap : b->availablePackages()) {
+        if (ap->name() != packageName && ap->providesList().contains(packageName)) {
+            auto pkgPair = packageWithArch(ap->name(), sysArch, annotation);
+            return {pkgPair.first, true};
+        }
+    }
     return {nullptr, false};
 }
 

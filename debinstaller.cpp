@@ -199,6 +199,8 @@ void DebInstaller::dragMoveEvent(QDragMoveEvent *e)
 
 void DebInstaller::onPackagesSelected(const QStringList &packages)
 {
+    const QStringList archs = m_fileListModel->packagesManager()->architectures();
+
     for (const auto &package : packages)
     {
         auto p = std::make_shared<DebFile>(package);
@@ -215,10 +217,11 @@ void DebInstaller::onPackagesSelected(const QStringList &packages)
         TurnPackageArchitecture::TurnPackage turnStatus = TurnPackageArchitecture::TurnPackage::None;
         // 判断是否为 loong64 新世界且包架构代号不是 loongarch64
         // 即设置为 loong64 且尝试安装旧世界的包，将会尝试转包
-        auto backend = PackagesManager().m_backendFuture.result();
+        // auto backend = PackagesManager().m_backendFuture.result();
+
         if (p->architecture() == "loongarch64" &&
-            backend->architectures().contains("loong64") &&
-            !backend->architectures().contains("loongarch64")) {
+            archs.contains("loong64") &&
+            !archs.contains("loongarch64")) {
             // 尝试转包
             QString debPath = m_debTurner.turnLoongarchABI1ToABI2(p->filePath());
             qDebug() << debPath;
@@ -228,6 +231,7 @@ void DebInstaller::onPackagesSelected(const QStringList &packages)
             }
         }
         // 因部分原因，暂时移除该部分
+        // @gfdgd xi或后续开发者，backend->architectures().contains(...)被archs.contains(...)代替，若后续要启用这个部分，需要修改，这里因为注释掉了我就不改了
         /*
         // 判断是否为非 amd64/i386 且软件包为 amd64
         if (p->architecture() == "amd64" &&

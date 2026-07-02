@@ -30,6 +30,7 @@
 #include <QObject>
 #include <QFuture>
 #include <QSharedPointer>
+#include <QStringList>
 
 #include <QApt/Backend>
 #include <QApt/DebFile>
@@ -70,7 +71,9 @@ class PackagesManager : public QObject
 public:
     explicit PackagesManager(QObject *parent = 0);
 
-    bool isBackendReady();
+    // bool isBackendReady();
+    bool isBackendReady() const { return m_backendFuture.isFinished(); }
+    QStringList architectures() const;
     bool isArchError(const int idx);
     const ConflictResult packageConflictStat(const int index);
     const ConflictResult isConflictSatisfy(const QString &arch, QApt::Package *package);
@@ -93,8 +96,6 @@ public:
     std::shared_ptr<QApt::DebFile> const package(const int index) const { return m_preparedPackages[index]; }
     QSharedPointer<QApt::Backend> const backend() const { return m_backendFuture.result(); }
 
-    QFuture<QSharedPointer<QApt::Backend>> m_backendFuture;
-
 private:
     const PackageDependsStatus checkDependsPackageStatus(QSet<QString> &choosed_set,const QString &architecture, const QList<QApt::DependencyItem> &depends);
     const PackageDependsStatus checkDependsPackageStatus(QSet<QString> &choosed_set,const QString &architecture, const QApt::DependencyItem &candicate);
@@ -108,6 +109,7 @@ private:
     QHash<int, int> m_packageInstallStatus;
     QHash<int, PackageDependsStatus> m_packageDependsStatus;
     QSet<QByteArray> m_appendedPackagesMd5;
+    QFuture<QSharedPointer<QApt::Backend>> m_backendFuture;
 };
 
 #endif // PACKAGESMANAGER_H
