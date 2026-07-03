@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="sl">
+<TS version="2.1" language="sl_SI">
 <context>
     <name>DebInstaller</name>
     <message>
         <location filename="../debinstaller.cpp" line="66"/>
         <source>Dark theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Tema v temnih barvah</translation>
     </message>
     <message>
         <location filename="../debinstaller.cpp" line="94"/>
         <source>GXDE Package Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Upravljalnik paketov GXDE</translation>
     </message>
     <message>
         <source>Deepin Package Manager</source>
@@ -176,7 +176,7 @@
     <message>
         <location filename="../singleinstallpage.cpp" line="172"/>
         <source>Architecture: </source>
-        <translation type="unfinished"></translation>
+        <translation>Arhitektura: </translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="330"/>
@@ -191,27 +191,27 @@
     <message>
         <location filename="../singleinstallpage.cpp" line="412"/>
         <source>Older version installed</source>
-        <translation type="unfinished"></translation>
+        <translation>Nameščen je starejša različica</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="413"/>
         <source>Upgrade</source>
-        <translation type="unfinished"></translation>
+        <translation>Posodobi</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="417"/>
         <source>Newer version installed</source>
-        <translation type="unfinished"></translation>
+        <translation>Nameščena je novejša različica</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="418"/>
         <source>Downgrade</source>
-        <translation type="unfinished"></translation>
+        <translation>Ponizajanje</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="422"/>
         <source>Unknown installation status</source>
-        <translation type="unfinished"></translation>
+        <translation>Neznan status nameščanja</translation>
     </message>
     <message>
         <source>Other version installed: %1</source>
@@ -259,7 +259,7 @@
         <location filename="../uninstallconfirmpage.cpp" line="101"/>
         <source>Are you sure you want to uninstall %1?
 All dependencies will also be removed</source>
-        <translation type="unfinished"></translation>
+        <translation>Ali ste prepričani, da želite odstraniti %1? Vse odvisnosti bodo tudi odstranjene</translation>
     </message>
 </context>
 <context>
@@ -271,12 +271,12 @@ All dependencies will also be removed</source>
     <message>
         <location filename="../main.cpp" line="54"/>
         <source>GXDE Package Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>GXDE upravljalnik paketov</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="55"/>
         <source>GXDE Package Manager is used to help users install and remove local packages, supporting bulk install.</source>
-        <translation type="unfinished"></translation>
+        <translation>GXDE upravljalnik paketov se uporablja za pomoč uporabnikom pri nameščanju in odstranjevanju lokalnih paketov, podpira pa tudi skupinsko nameščanje.</translation>
     </message>
 </context>
 </TS>

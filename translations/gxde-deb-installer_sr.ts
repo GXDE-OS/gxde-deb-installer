@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="sr">
+<TS version="2.1" language="sr_RS">
 <context>
     <name>DebInstaller</name>
     <message>
@@ -11,7 +11,7 @@
     <message>
         <location filename="../debinstaller.cpp" line="94"/>
         <source>GXDE Package Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Менаџер пакета GXDE</translation>
     </message>
     <message>
         <source>Deepin Package Manager</source>
@@ -176,7 +176,7 @@
     <message>
         <location filename="../singleinstallpage.cpp" line="172"/>
         <source>Architecture: </source>
-        <translation type="unfinished"></translation>
+        <translation>Arhitektura: </translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="330"/>
@@ -191,27 +191,27 @@
     <message>
         <location filename="../singleinstallpage.cpp" line="412"/>
         <source>Older version installed</source>
-        <translation type="unfinished"></translation>
+        <translation>Starija verzija je instalirana</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="413"/>
         <source>Upgrade</source>
-        <translation type="unfinished"></translation>
+        <translation>Nadogradnja</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="417"/>
         <source>Newer version installed</source>
-        <translation type="unfinished"></translation>
+        <translation>Novija verzija je instalirana</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="418"/>
         <source>Downgrade</source>
-        <translation type="unfinished"></translation>
+        <translation>Poništavanje nadogradnje</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="422"/>
         <source>Unknown installation status</source>
-        <translation type="unfinished"></translation>
+        <translation>Nepoznat status instalacije</translation>
     </message>
     <message>
         <source>Other version installed: %1</source>
@@ -276,12 +276,12 @@ All dependencies will also be removed</source>
     <message>
         <location filename="../main.cpp" line="54"/>
         <source>GXDE Package Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Менаџер пакета GXDE</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="55"/>
         <source>GXDE Package Manager is used to help users install and remove local packages, supporting bulk install.</source>
-        <translation type="unfinished"></translation>
+        <translation>Користи се за помоћ корисницима при инсталирању и уклањању локалних пакета, подржава масовно инсталирање.</translation>
     </message>
 </context>
 </TS>

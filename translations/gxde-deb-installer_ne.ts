@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="ne">
+<TS version="2.1" language="ne_NP">
 <context>
     <name>DebInstaller</name>
     <message>
@@ -11,7 +11,7 @@
     <message>
         <location filename="../debinstaller.cpp" line="94"/>
         <source>GXDE Package Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>GXDE पैकेज प्रबन्धक</translation>
     </message>
     <message>
         <source>Deepin Package Manager</source>
@@ -176,7 +176,7 @@
     <message>
         <location filename="../singleinstallpage.cpp" line="172"/>
         <source>Architecture: </source>
-        <translation type="unfinished"></translation>
+        <translation>आर्किटेक्चर:</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="330"/>
@@ -191,27 +191,27 @@
     <message>
         <location filename="../singleinstallpage.cpp" line="412"/>
         <source>Older version installed</source>
-        <translation type="unfinished"></translation>
+        <translation>पुरानो संस्करण स्थापित</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="413"/>
         <source>Upgrade</source>
-        <translation type="unfinished"></translation>
+        <translation>अपग्रेड गर्नुहोस्</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="417"/>
         <source>Newer version installed</source>
-        <translation type="unfinished"></translation>
+        <translation>नयाँ संस्करण स्थापित</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="418"/>
         <source>Downgrade</source>
-        <translation type="unfinished"></translation>
+        <translation>डाउनग्रेड गर्नुहोस्</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="422"/>
         <source>Unknown installation status</source>
-        <translation type="unfinished"></translation>
+        <translation>अज्ञात स्थापना स्थिति</translation>
     </message>
     <message>
         <source>Other version installed: %1</source>
@@ -275,12 +275,12 @@ All dependencies will also be removed</source>
     <message>
         <location filename="../main.cpp" line="54"/>
         <source>GXDE Package Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>GXDE पैकेज प्रबन्धक</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="55"/>
         <source>GXDE Package Manager is used to help users install and remove local packages, supporting bulk install.</source>
-        <translation type="unfinished"></translation>
+        <translation>यो GXDE पैकेज प्रबन्धक प्रयोग गरिएको छ जसले प्रयोगकर्ताहरूलाई स्थानीय पैकेजहरू स्थापित गर्न र हटाउन मद्दत गर्दछ। यसले बुल्क स्थापना समर्थन गर्दछ।</translation>
     </message>
 </context>
 </TS>

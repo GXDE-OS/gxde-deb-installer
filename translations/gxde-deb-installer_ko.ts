@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="ko">
+<TS version="2.1" language="ko_KR">
 <context>
     <name>DebInstaller</name>
     <message>
@@ -11,7 +11,7 @@
     <message>
         <location filename="../debinstaller.cpp" line="94"/>
         <source>GXDE Package Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>GXDE 패키지 관리자</translation>
     </message>
     <message>
         <source>Deepin Package Manager</source>
@@ -176,7 +176,7 @@
     <message>
         <location filename="../singleinstallpage.cpp" line="172"/>
         <source>Architecture: </source>
-        <translation type="unfinished"></translation>
+        <translation>아키텍처: </translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="330"/>
@@ -191,27 +191,27 @@
     <message>
         <location filename="../singleinstallpage.cpp" line="412"/>
         <source>Older version installed</source>
-        <translation type="unfinished"></translation>
+        <translation>이전 버전이 설치됨</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="413"/>
         <source>Upgrade</source>
-        <translation type="unfinished"></translation>
+        <translation>업그레이드</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="417"/>
         <source>Newer version installed</source>
-        <translation type="unfinished"></translation>
+        <translation>최신 버전이 설치됨</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="418"/>
         <source>Downgrade</source>
-        <translation type="unfinished"></translation>
+        <translation>다운그레이드</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="422"/>
         <source>Unknown installation status</source>
-        <translation type="unfinished"></translation>
+        <translation>알 수 없는 설치 상태</translation>
     </message>
     <message>
         <source>Other version installed: %1</source>
@@ -276,12 +276,12 @@ All dependencies will also be removed</source>
     <message>
         <location filename="../main.cpp" line="54"/>
         <source>GXDE Package Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>GXDE 패키지 관리자</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="55"/>
         <source>GXDE Package Manager is used to help users install and remove local packages, supporting bulk install.</source>
-        <translation type="unfinished"></translation>
+        <translation>GXDE 패키지 관리자는 사용자가 로컬 패키지를 설치하고 제거하는 데 도움을 주며, 대량 설치를 지원합니다.</translation>
     </message>
 </context>
 </TS>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="nl">
+<TS version="2.1" language="nl_NL">
 <context>
     <name>DebInstaller</name>
     <message>
@@ -11,7 +11,7 @@
     <message>
         <location filename="../debinstaller.cpp" line="94"/>
         <source>GXDE Package Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>GXDE Pakketbeheerder</translation>
     </message>
     <message>
         <source>Deepin Package Manager</source>
@@ -276,12 +276,12 @@ Alle afhankelijkheden worden eveneens verwijderd</translation>
     <message>
         <location filename="../main.cpp" line="54"/>
         <source>GXDE Package Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>GXDE Pakketbeheerder</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="55"/>
         <source>GXDE Package Manager is used to help users install and remove local packages, supporting bulk install.</source>
-        <translation type="unfinished"></translation>
+        <translation>De GXDE Pakketbeheerder helpt gebruikers bij het installeren en verwijderen van lokale pakketten, inclusief massainstallatie.</translation>
     </message>
 </context>
 </TS>

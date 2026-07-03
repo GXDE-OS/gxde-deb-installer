@@ -6,12 +6,12 @@
     <message>
         <location filename="../debinstaller.cpp" line="66"/>
         <source>Dark theme</source>
-        <translation type="unfinished"></translation>
+        <translation>በልጥ የክራም</translation>
     </message>
     <message>
         <location filename="../debinstaller.cpp" line="94"/>
         <source>GXDE Package Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>የ GXDE ደህንነት መንገዶች አስፈላጊ</translation>
     </message>
     <message>
         <source>Deepin Package Manager</source>
@@ -90,7 +90,7 @@
     <message>
         <location filename="../multipleinstallpage.cpp" line="59"/>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation>ተከሳሽዎ</translation>
     </message>
     <message>
         <location filename="../multipleinstallpage.cpp" line="61"/>
@@ -166,7 +166,7 @@
     <message>
         <location filename="../singleinstallpage.cpp" line="154"/>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation>ተጠናቀ</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="167"/>
@@ -176,7 +176,7 @@
     <message>
         <location filename="../singleinstallpage.cpp" line="172"/>
         <source>Architecture: </source>
-        <translation type="unfinished"></translation>
+        <translation>የስራ መፍጠሪያ: </translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="330"/>
@@ -191,27 +191,27 @@
     <message>
         <location filename="../singleinstallpage.cpp" line="412"/>
         <source>Older version installed</source>
-        <translation type="unfinished"></translation>
+        <translation>የቅዱ ብርታ ተከፍሎ</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="413"/>
         <source>Upgrade</source>
-        <translation type="unfinished"></translation>
+        <translation>የትኛውን መጠን</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="417"/>
         <source>Newer version installed</source>
-        <translation type="unfinished"></translation>
+        <translation>የነው ብርታ ተከፍሎ</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="418"/>
         <source>Downgrade</source>
-        <translation type="unfinished"></translation>
+        <translation>የቅዱ ብርታ መጠን</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="422"/>
         <source>Unknown installation status</source>
-        <translation type="unfinished"></translation>
+        <translation>ያልተያያዙ የተከፍሎ ሁኔታ</translation>
     </message>
     <message>
         <source>Other version installed: %1</source>
@@ -259,7 +259,7 @@
         <location filename="../uninstallconfirmpage.cpp" line="101"/>
         <source>Are you sure you want to uninstall %1?
 All dependencies will also be removed</source>
-        <translation type="unfinished"></translation>
+        <translation>እርግጠኛ የትንታኔ መሰረዝ ያህል ይፋ ይሄዳል? ቁልፎችን ጥቂት ያልቆየው ይሰራል?</translation>
     </message>
 </context>
 <context>
@@ -271,12 +271,12 @@ All dependencies will also be removed</source>
     <message>
         <location filename="../main.cpp" line="54"/>
         <source>GXDE Package Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>ግርዳ አብራሪ መንገድ</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="55"/>
         <source>GXDE Package Manager is used to help users install and remove local packages, supporting bulk install.</source>
-        <translation type="unfinished"></translation>
+        <translation>ግርዳ አብራሪ መንገድ ተጠቃሚዎችን ማስታወሻ እና ማስፋፋት ለመስጠት ተጠቃሚዎች ከታች ያስቀምጥ ነው። በቅርቡ መስጠት እንደሚያሳዩ ከታች ያስቀምጥ ነው።</translation>
     </message>
 </context>
 </TS>

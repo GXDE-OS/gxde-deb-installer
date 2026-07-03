@@ -6,12 +6,12 @@
     <message>
         <location filename="../debinstaller.cpp" line="66"/>
         <source>Dark theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Tema escuro</translation>
     </message>
     <message>
         <location filename="../debinstaller.cpp" line="94"/>
         <source>GXDE Package Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Xestor de paquetes GXDE</translation>
     </message>
     <message>
         <source>Deepin Package Manager</source>
@@ -259,7 +259,7 @@
         <location filename="../uninstallconfirmpage.cpp" line="101"/>
         <source>Are you sure you want to uninstall %1?
 All dependencies will also be removed</source>
-        <translation type="unfinished"></translation>
+        <translation>Estás seguro de que queres desinstalar %1? Tamén se eliminarán todas as dependencias</translation>
     </message>
 </context>
 <context>
@@ -271,12 +271,12 @@ All dependencies will also be removed</source>
     <message>
         <location filename="../main.cpp" line="54"/>
         <source>GXDE Package Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Xestor de Paquetes GXDE</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="55"/>
         <source>GXDE Package Manager is used to help users install and remove local packages, supporting bulk install.</source>
-        <translation type="unfinished"></translation>
+        <translation>O Xestor de Paquetes GXDE utilízase para axudar aos usuarios a instalar e eliminar paquetes locais, soportando a instalación en masa.</translation>
     </message>
 </context>
 </TS>

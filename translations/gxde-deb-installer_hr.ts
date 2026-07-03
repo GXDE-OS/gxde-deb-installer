@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="hr">
+<TS version="2.1" language="hr_HR">
 <context>
     <name>DebInstaller</name>
     <message>
         <location filename="../debinstaller.cpp" line="66"/>
         <source>Dark theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamna tema</translation>
     </message>
     <message>
         <location filename="../debinstaller.cpp" line="94"/>
         <source>GXDE Package Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>GXDE upravitelj paketa</translation>
     </message>
     <message>
         <source>Deepin Package Manager</source>
@@ -54,7 +54,7 @@
     <message>
         <location filename="../deblistmodel.cpp" line="305"/>
         <source>Unmatched package architecture</source>
-        <translation type="unfinished"></translation>
+        <translation>Nepodudarna arhitektura paketa</translation>
     </message>
 </context>
 <context>
@@ -75,7 +75,7 @@
     <message>
         <location filename="../multipleinstallpage.cpp" line="41"/>
         <source>Collapse</source>
-        <translation type="unfinished"></translation>
+        <translation>Sklopiti</translation>
     </message>
     <message>
         <location filename="../multipleinstallpage.cpp" line="41"/>
@@ -131,7 +131,7 @@
     <message>
         <location filename="../singleinstallpage.cpp" line="110"/>
         <source>Collapse</source>
-        <translation type="unfinished"></translation>
+        <translation>Sklopi</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="110"/>
@@ -176,7 +176,7 @@
     <message>
         <location filename="../singleinstallpage.cpp" line="172"/>
         <source>Architecture: </source>
-        <translation type="unfinished"></translation>
+        <translation>Arhitektura: </translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="330"/>
@@ -191,27 +191,27 @@
     <message>
         <location filename="../singleinstallpage.cpp" line="412"/>
         <source>Older version installed</source>
-        <translation type="unfinished"></translation>
+        <translation>Starija verzija instalirana</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="413"/>
         <source>Upgrade</source>
-        <translation type="unfinished"></translation>
+        <translation>Nadogradnja</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="417"/>
         <source>Newer version installed</source>
-        <translation type="unfinished"></translation>
+        <translation>Novija verzija instalirana</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="418"/>
         <source>Downgrade</source>
-        <translation type="unfinished"></translation>
+        <translation>Ponižavanje</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="422"/>
         <source>Unknown installation status</source>
-        <translation type="unfinished"></translation>
+        <translation>Nepoznati status instalacije</translation>
     </message>
     <message>
         <source>Other version installed: %1</source>
@@ -238,12 +238,12 @@
     <message>
         <location filename="../uninstallconfirmpage.cpp" line="33"/>
         <source>Display related packages</source>
-        <translation type="unfinished"></translation>
+        <translation>Prikaži povezane pakete</translation>
     </message>
     <message>
         <location filename="../uninstallconfirmpage.cpp" line="33"/>
         <source>Collapse</source>
-        <translation type="unfinished"></translation>
+        <translation>Smanji</translation>
     </message>
     <message>
         <location filename="../uninstallconfirmpage.cpp" line="46"/>
@@ -259,7 +259,7 @@
         <location filename="../uninstallconfirmpage.cpp" line="101"/>
         <source>Are you sure you want to uninstall %1?
 All dependencies will also be removed</source>
-        <translation type="unfinished"></translation>
+        <translation>Jeste li sigurni da želite odstraniti %1? Sve zavisnosti će također biti uklonjene</translation>
     </message>
 </context>
 <context>
@@ -271,12 +271,12 @@ All dependencies will also be removed</source>
     <message>
         <location filename="../main.cpp" line="54"/>
         <source>GXDE Package Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>GXDE upravitelj paketa</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="55"/>
         <source>GXDE Package Manager is used to help users install and remove local packages, supporting bulk install.</source>
-        <translation type="unfinished"></translation>
+        <translation>GXDE upravitelj paketa koristi se za pomoć korisnicima pri instaliranju i uklanjanju lokalnih paketa, podržavajući masovnu instalaciju.</translation>
     </message>
 </context>
 </TS>

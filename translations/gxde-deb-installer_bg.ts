@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="bg">
+<TS version="2.1" language="bg_BG">
 <context>
     <name>DebInstaller</name>
     <message>
         <location filename="../debinstaller.cpp" line="66"/>
         <source>Dark theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Тъмна тема</translation>
     </message>
     <message>
         <location filename="../debinstaller.cpp" line="94"/>
         <source>GXDE Package Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Мениджър на пакети GXDE</translation>
     </message>
     <message>
         <source>Deepin Package Manager</source>
@@ -259,7 +259,7 @@
         <location filename="../uninstallconfirmpage.cpp" line="101"/>
         <source>Are you sure you want to uninstall %1?
 All dependencies will also be removed</source>
-        <translation type="unfinished"></translation>
+        <translation>Наистина ли искате да деинсталирате %1? Всички зависимости ще бъдат премахнати.</translation>
     </message>
 </context>
 <context>
@@ -271,12 +271,12 @@ All dependencies will also be removed</source>
     <message>
         <location filename="../main.cpp" line="54"/>
         <source>GXDE Package Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Мениджър на пакети GXDE</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="55"/>
         <source>GXDE Package Manager is used to help users install and remove local packages, supporting bulk install.</source>
-        <translation type="unfinished"></translation>
+        <translation>Мениджърът на пакети GXDE се използва за помощ на потребителите при инсталиране и премахване на локални пакети, поддържайки масовото инсталиране.</translation>
     </message>
 </context>
 </TS>

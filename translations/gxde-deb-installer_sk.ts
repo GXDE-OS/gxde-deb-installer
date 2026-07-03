@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="sk">
+<TS version="2.1" language="sk_SK">
 <context>
     <name>DebInstaller</name>
     <message>
@@ -11,7 +11,7 @@
     <message>
         <location filename="../debinstaller.cpp" line="94"/>
         <source>GXDE Package Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Správca balíčkov GXDE</translation>
     </message>
     <message>
         <source>Deepin Package Manager</source>
@@ -276,12 +276,12 @@ Všetky závislosti budú tiež odstránené</translation>
     <message>
         <location filename="../main.cpp" line="54"/>
         <source>GXDE Package Manager</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Správca balíčkov GXDE</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="55"/>
         <source>GXDE Package Manager is used to help users install and remove local packages, supporting bulk install.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Správca balíčkov GXDE sa používa na pomoc pri inštalácii a odstraňovaní miestnych balíčkov, podporuje hromadnú inštaláciu.</translation>
     </message>
 </context>
 </TS>

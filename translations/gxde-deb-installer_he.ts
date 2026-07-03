@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="he">
+<TS version="2.1" language="he_IL">
 <context>
     <name>DebInstaller</name>
     <message>
         <location filename="../debinstaller.cpp" line="66"/>
         <source>Dark theme</source>
-        <translation type="unfinished"></translation>
+        <translation>נושא אפל</translation>
     </message>
     <message>
         <location filename="../debinstaller.cpp" line="94"/>
         <source>GXDE Package Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>מנהל החבילות GXDE</translation>
     </message>
     <message>
         <source>Deepin Package Manager</source>
@@ -90,7 +90,7 @@
     <message>
         <location filename="../multipleinstallpage.cpp" line="59"/>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation>הוגש</translation>
     </message>
     <message>
         <location filename="../multipleinstallpage.cpp" line="61"/>
@@ -166,7 +166,7 @@
     <message>
         <location filename="../singleinstallpage.cpp" line="154"/>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation>הושלם</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="167"/>
@@ -176,7 +176,7 @@
     <message>
         <location filename="../singleinstallpage.cpp" line="172"/>
         <source>Architecture: </source>
-        <translation type="unfinished"></translation>
+        <translation>ארכיטקטורה:</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="330"/>
@@ -191,27 +191,27 @@
     <message>
         <location filename="../singleinstallpage.cpp" line="412"/>
         <source>Older version installed</source>
-        <translation type="unfinished"></translation>
+        <translation>גרסה ישנה מותקנת</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="413"/>
         <source>Upgrade</source>
-        <translation type="unfinished"></translation>
+        <translation>שדרוג</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="417"/>
         <source>Newer version installed</source>
-        <translation type="unfinished"></translation>
+        <translation>גרסה חדשה יותר מותקנת</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="418"/>
         <source>Downgrade</source>
-        <translation type="unfinished"></translation>
+        <translation>הפחתת גירסה</translation>
     </message>
     <message>
         <location filename="../singleinstallpage.cpp" line="422"/>
         <source>Unknown installation status</source>
-        <translation type="unfinished"></translation>
+        <translation>סטטוס התקנה לא ידוע</translation>
     </message>
     <message>
         <source>Other version installed: %1</source>
@@ -259,7 +259,7 @@
         <location filename="../uninstallconfirmpage.cpp" line="101"/>
         <source>Are you sure you want to uninstall %1?
 All dependencies will also be removed</source>
-        <translation type="unfinished"></translation>
+        <translation>האם אתה בטוח שברצונך להסיר את %1? כל התלותיות יוסרו גם כן</translation>
     </message>
 </context>
 <context>
@@ -271,12 +271,12 @@ All dependencies will also be removed</source>
     <message>
         <location filename="../main.cpp" line="54"/>
         <source>GXDE Package Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>מנהל החבילות GXDE</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="55"/>
         <source>GXDE Package Manager is used to help users install and remove local packages, supporting bulk install.</source>
-        <translation type="unfinished"></translation>
+        <translation>מנהל החבילות GXDE משמש לעזרת המשתמשים בהתקנת והסרת חבילות מקומיות, תוך תמיכה בהתקנה המונית.</translation>
     </message>
 </context>
 </TS>
