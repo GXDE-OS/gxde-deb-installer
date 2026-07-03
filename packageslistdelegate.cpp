@@ -148,7 +148,9 @@ void PackagesListDelegate::paint(QPainter *painter, const QStyleOptionViewItem &
             painter->setPen(QColor(255, 109, 109));
         }
     } else {
-        info_str = QString::fromUtf8(index.data(DebListModel::PackageDescriptionRole).toString().toLatin1());
+        // info_str = QString::fromUtf8(index.data(DebListModel::PackageDescriptionRole).toString().toLatin1());
+        // 修复deb包应用描述中文无法正常显示，显示”?“的问题
+        info_str = index.data(DebListModel::PackageDescriptionRole).toString();
         painter->setPen(QColor(90, 90, 90));
     }
 

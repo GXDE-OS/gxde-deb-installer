@@ -389,7 +389,9 @@ void SingleInstallPage::setPackageInfo()
     // set package description
     // const QRegularExpression multiLine("\n+", QRegularExpression::MultilineOption);
     // const QString description = package->longDescription().replace(multiLine, "\n");
-    const QString description = QString::fromUtf8(package->longDescription().toLatin1());
+    // const QString description = QString::fromUtf8(package->longDescription().toLatin1());
+    // 修复deb包应用描述中文无法正常显示，显示”?“的问题
+    const QString description = package->longDescription();
 
     const QSize boundingSize = QSize(m_packageDescription->width(), m_packageDescription->maximumHeight());
     m_packageDescription->setText(holdTextInRect(m_packageDescription->font(), description, boundingSize));
