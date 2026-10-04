@@ -1,4 +1,4 @@
-gxde-deb-installer (2.0.4) UNRELEASED; urgency=medium
+gxde-deb-installer (2.0.5) UNRELEASED; urgency=medium
 
   * 新增支持设置背景图片标签
   * 支持转包（amd64->all），调用 box64 运行
@@ -9,8 +9,9 @@ gxde-deb-installer (2.0.4) UNRELEASED; urgency=medium
   * 修复有概率异常崩溃的情况
   * 修复deb包应用描述中文无法正常显示，显示”?“的问题
   * 完善翻译
+  * 修复安装deb包时需要等待很久才能弹出提权页面的问题
 
- -- gfdgd_xi <3025613752@qq.com>  Sat, 04 Jul 2026 09:21:28 +0800
+ -- gfdgd_xi <3025613752@qq.com>  Sun, 04 Oct 2026 16:30:45 +0800
 
 gxde-deb-installer (1.0.0-1) unstable; urgency=medium
 
