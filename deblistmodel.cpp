@@ -402,8 +402,16 @@ void DebListModel::installNextDeb()
     auto const backend = m_packagesManager->m_backendFuture.result();
     Transaction *trans = nullptr;
 
-    // reset package depends status
-    m_packagesManager->resetPackageDependsStatus(m_operatingIndex);
+    // Reset package depends status (reload the backend cache) only when the
+    // apt state may have changed, i.e. for packages after the first one in a
+    // batch install. For the first package the dependency status was already
+    // resolved while the package info page was built, so reusing the cached
+    // result avoids a costly re-computation (dependency-tree traversal + apt
+    // cache access) that would block the UI thread and delay the
+    // privilege-escalation (password) prompt. This stall is most noticeable on
+    // the first install, when the apt cache / disk pages are still cold.
+    if (m_operatingIndex != 0)
+        m_packagesManager->resetPackageDependsStatus(m_operatingIndex);
 
     // check available dependencies
     const auto dependsStat = m_packagesManager->packageDependsStatus(m_operatingIndex);

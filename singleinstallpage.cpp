@@ -258,7 +258,14 @@ SingleInstallPage::SingleInstallPage(DebListModel *model, QWidget *parent)
 void SingleInstallPage::install()
 {
     m_operate = Install;
-    m_packagesModel->installAll();
+
+    // Show the progress UI immediately so the user gets instant feedback
+    // instead of a frozen window, and defer the actual install to the next
+    // event-loop iteration so this feedback is painted before the (potentially
+    // heavy) transaction preparation runs. This makes the privilege-escalation
+    // (password) prompt pop up right away instead of after a noticeable pause.
+    showInfo();
+    QTimer::singleShot(0, m_packagesModel, &DebListModel::installAll);
 }
 
 void SingleInstallPage::uninstallCurrentPackage()
